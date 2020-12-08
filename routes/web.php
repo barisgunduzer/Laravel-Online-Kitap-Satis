@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home2', function () {
     return view('welcome');
 });
+Route::redirect('/anasayfa','/home');
+
+Route::get('/', function () {
+    return view('home.index',['name' => 'Barış Gündüzer' ]);
+});
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+//Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->where(['id'=>'[0-9]+','name'=>'[A-Za-z]+']);
+Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->name('test')->whereNumber('id')->whereAlpha('name');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
