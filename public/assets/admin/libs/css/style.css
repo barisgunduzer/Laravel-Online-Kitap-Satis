@@ -1239,7 +1239,7 @@ Top Header
     white-space: nowrap;
     padding: 11px 20px;
     font-size: 30px;
-    text-transform: uppercase;
+    text-transform: none;
     font-weight: 700;
     color: #007bff;
 }

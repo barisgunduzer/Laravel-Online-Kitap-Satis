@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{asset('assets')}}/css/plugins.css">
     <link rel="stylesheet" href="{{asset('assets')}}/style.css">
 
-    <!-- Cusom css -->
+    <!-- Custom css -->
     <link rel="stylesheet" href="{{asset('assets')}}/css/custom.css">
 
     <!-- Modernizer js -->

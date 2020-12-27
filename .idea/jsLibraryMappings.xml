@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{alpine}" />
+    <file url="PROJECT" libraries="{alpine, buttons.colVis, buttons.html5, buttons.print, dataTables.buttons, dataTables.fixedHeader, dataTables.rowGroup, dataTables.select, jquery.dataTables, jszip, pdfmake}" />
   </component>
 </project>
