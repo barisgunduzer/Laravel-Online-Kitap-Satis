@@ -43,6 +43,8 @@
             <!-- ============================================================== -->
             <!-- end pageheader -->
             <!-- ============================================================== -->
+            <!-- <a href="{{route('admin_category_add')}}" class="btn btn-">+ Add Category</a> -->
+            <a href="{{route('admin_category_add')}}" class="btn btn-success">+ Add Category</a>
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table  -->
@@ -69,8 +71,8 @@
                                         <td>{{$rs->parent_id}}</td>
                                         <td>{{$rs->title}}</td>
                                         <td>{{$rs->status}}</td>
-                                        <td>Edit</td>
-                                        <td>Delete</td>
+                                        <td><a class="btn btn-rounded btn-outline-warning" href="{{route('admin_category_edit',['id' => $rs->id])}}">Edit</a></td>
+                                        <td><a class="btn btn-rounded btn-outline-danger" href="{{route('admin_category_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')">Delete</a></td>
                                     </tr>
                                     @endforeach
                                     </tbody>
