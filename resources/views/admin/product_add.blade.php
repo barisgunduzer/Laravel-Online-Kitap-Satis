@@ -8,6 +8,9 @@
 
 @section('author','barisgunduzer')
 
+@section('headerjs')<script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
+@endsection
+
 @section('content')
 
     <!-- ============================================================== -->
@@ -76,8 +79,15 @@
                                     <input id="ISBN" type="text" name="ISBN" class="form-control" placeholder="ISBN-13">
                                 </div>
                                 <div class="form-group">
-                                    <label for="book_detail" class="col-form-label">Book Detail:</label>
-                                    <input id="book_detail" type="text" name="book_detail" class="form-control">
+                                    <label for="editor" class="col-form-label">Book Detail:</label>
+                                    <textarea id="editor"></textarea>
+                                    <script>
+                                        ClassicEditor
+                                            .create( document.querySelector( '#editor' ) )
+                                            .catch( error => {
+                                                console.error( error );
+                                            } );
+                                    </script>
                                 </div>
                                 <div class="form-group">
                                     <label for="price" class="col-form-label">Price:</label>

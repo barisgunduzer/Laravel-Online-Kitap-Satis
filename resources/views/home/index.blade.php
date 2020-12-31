@@ -20,7 +20,3 @@
     @include('home._quickview_wrapper')
 
 @endsection
-
-
-
-
