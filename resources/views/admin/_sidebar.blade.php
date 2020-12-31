@@ -17,7 +17,7 @@
                         <a class="nav-link" href="{{route('admin_category')}}"><i class="fas fa-fw fa-chart-pie"></i>Categories</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="#"><i class="fas fa-fw fa-book"></i>Products</a>
+                        <a class="nav-link" href="{{route('admin_products')}}"><i class="fas fa-fw fa-book"></i>Books</a>
                     </li>
                 </ul>
             </div>

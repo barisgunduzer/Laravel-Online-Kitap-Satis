@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Category List')
+@section('title','Product List')
 
 @section('description','Dünya klasiklerinden, çocuk edebiyatına; kırtasiye malzemelerinden hobi ve elektroniğe varan yüzlerce kategoriden binlerce ürün sizleri bekliyor!')
 
@@ -27,13 +27,13 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">Category List </h2>
+                        <h2 class="pageheader-title">Book List</h2>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
                                     <!-- <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Categories</a></li> -->
-                                    <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Books</li>
                                 </ol>
                             </nav>
                         </div>
@@ -44,7 +44,7 @@
             <!-- end pageheader -->
             <!-- ============================================================== -->
             <!-- <a href="{{route('admin_category_add')}}" class="btn btn-">+ Add Category</a> -->
-            <a href="{{route('admin_category_add')}}" class="btn btn-success">Add Category</a>
+            <a href="{{route('admin_product_create')}}" class="btn btn-success">Add Product</a>
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table  -->
@@ -57,8 +57,13 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Parent</th>
-                                        <th>Categories</th>
+                                        <th>Category</th>
+                                        <th>Book Name</th>
+                                        <th>Author</th>
+                                        <th>Publisher</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Image</th>
                                         <th>Status</th>
                                         <th colspan="2">Actions</th>
                                     </tr>
@@ -67,11 +72,16 @@
                                     @foreach($datalist as $rs)
                                     <tr>
                                         <td>{{$rs->id}}</td>
-                                        <td>{{$rs->parent_id}}</td>
+                                        <td>{{$rs->category_id}}</td>
                                         <td>{{$rs->title}}</td>
+                                        <td>{{$rs->author_name}}</td>
+                                        <td>{{$rs->publisher_name}}</td>
+                                        <td>{{$rs->quantity_in_stock}}</td>
+                                        <td>{{$rs->price}}</td>
+                                        <td>{{$rs->image}}</td>
                                         <td>{{$rs->status}}</td>
-                                        <td><a href="{{route('admin_category_edit',['id' => $rs->id])}}"><i class="fas fa-edit"></i></a></td>
-                                        <td><a href="{{route('admin_category_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a></td>
+                                        <td><a href="{{route('admin_product_edit',['id' => $rs->id])}}"><i class="fas fa-edit"></i></a></td>
+                                        <td><a href="{{route('admin_product_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a></td>
                                     </tr>
                                     @endforeach
                                     </tbody>
