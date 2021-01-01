@@ -44,7 +44,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('admin_product_store')}}" method="post">
+                            <form action="{{route('admin_product_store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="category_id">Category:</label>
@@ -116,9 +116,9 @@
                                     <label for="slug">Slug:</label>
                                     <input id="slug" type="text" name="slug" class="form-control">
                                 </div>
-                                <div class="custom-file mb-3">
-                                    <input type="file" class="custom-file-input" id="add_image">
-                                    <label class="custom-file-label" for="add_image">Add Image:</label>
+                                <div class="form-group">
+                                    <label for="image">Image:</label>
+                                    <input id="image" type="file" name="image">
                                 </div>
                                 <div class="form-group">
                                     <button href="#" type="submit" class="btn btn-primary">Add Product</button>

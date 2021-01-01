@@ -61,6 +61,7 @@
                                         <th>Book Name</th>
                                         <th>Author</th>
                                         <th>Publisher</th>
+                                        <th>ISBN</th>
                                         <th>Quantity</th>
                                         <th>Price</th>
                                         <th>Image</th>
@@ -76,9 +77,14 @@
                                         <td>{{$rs->title}}</td>
                                         <td>{{$rs->author_name}}</td>
                                         <td>{{$rs->publisher_name}}</td>
+                                        <td>{{$rs->ISBN}}</td>
                                         <td>{{$rs->quantity_in_stock}}</td>
                                         <td>{{$rs->price}}</td>
-                                        <td>{{$rs->image}}</td>
+                                        <td>
+                                            @if ($rs->image)
+                                                <img src="{{ Storage::url($rs->image)}}" height="30" alt=""/>
+                                            @endif
+                                        </td>
                                         <td>{{$rs->status}}</td>
                                         <td><a href="{{route('admin_product_edit',['id' => $rs->id])}}"><i class="fas fa-edit"></i></a></td>
                                         <td><a href="{{route('admin_product_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a></td>
@@ -118,6 +124,3 @@
             <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
             <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
 @endsection
-
-
-
