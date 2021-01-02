@@ -43,8 +43,7 @@
             <!-- ============================================================== -->
             <!-- end pageheader -->
             <!-- ============================================================== -->
-            <!-- <a href="{{route('admin_category_add')}}" class="btn btn-">+ Add Category</a> -->
-            <a href="{{route('admin_product_create')}}" class="btn btn-success">Add Product</a>
+            <a href="{{route('admin_product_add')}}" class="btn btn-success">Add Product</a>
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table  -->
@@ -65,6 +64,7 @@
                                         <th>Quantity</th>
                                         <th>Price</th>
                                         <th>Image</th>
+                                        <th>Gallery</th>
                                         <th>Status</th>
                                         <th colspan="2">Actions</th>
                                     </tr>
@@ -85,6 +85,7 @@
                                                 <img src="{{ Storage::url($rs->image)}}" height="30" alt=""/>
                                             @endif
                                         </td>
+                                        <td><a href="{{route('admin_image_add',['product_id' => $rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700') "><i class="fas fa-images"></i></a></td>
                                         <td>{{$rs->status}}</td>
                                         <td><a href="{{route('admin_product_edit',['id' => $rs->id])}}"><i class="fas fa-edit"></i></a></td>
                                         <td><a href="{{route('admin_product_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a></td>

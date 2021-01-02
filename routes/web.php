@@ -54,14 +54,21 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 
     #Product
     Route::prefix('product')->group(function(){
-        //Route assigned name 'admin.users'...
         Route::get('/', [\App\Http\Controllers\Admin\ProductController::class, 'index'])->name('admin_products');
-        Route::get('create', [\App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin_product_create');
+        Route::get('create', [\App\Http\Controllers\Admin\ProductController::class, 'create'])->name('admin_product_add');
         Route::post('store', [\App\Http\Controllers\Admin\ProductController::class, 'store'])->name('admin_product_store');
         Route::get('edit/{id}', [\App\Http\Controllers\Admin\ProductController::class, 'edit'])->name('admin_product_edit');
         Route::post('update/{id}', [\App\Http\Controllers\Admin\ProductController::class, 'update'])->name('admin_product_update');
         Route::get('delete/{id}', [\App\Http\Controllers\Admin\ProductController::class, 'destroy'])->name('admin_product_delete');
         Route::get('show', [\App\Http\Controllers\Admin\ProductController::class, 'show'])->name('admin_product_show');
+    });
+
+    #Product Image Gallery
+    Route::prefix('image')->group(function(){
+        Route::get('create/{product_id}', [\App\Http\Controllers\Admin\ImageController::class, 'create'])->name('admin_image_add');
+        Route::post('store/{product_id}', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name('admin_image_store');
+        Route::get('delete/{product_id}/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('admin_image_delete');
+        Route::get('show', [\App\Http\Controllers\Admin\ImageController::class, 'show'])->name('admin_image_show');
     });
 });
 
