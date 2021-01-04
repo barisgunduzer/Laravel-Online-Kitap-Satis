@@ -13,11 +13,10 @@
                         </div>
                         <div class="footer__content">
                             <ul class="social__net social__net--2 d-flex justify-content-center">
-                                <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                                <li><a href="#"><i class="bi bi-google"></i></a></li>
-                                <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                                <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
-                                <li><a href="#"><i class="bi bi-youtube"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                             </ul>
                             <ul class="mainmenu d-flex justify-content-center">
                                 <li><a href="index.html">Trending</a></li>

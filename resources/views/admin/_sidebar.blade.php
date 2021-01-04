@@ -19,6 +19,12 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="{{route('admin_products')}}"><i class="fas fa-fw fa-book"></i>Books</a>
                     </li>
+                    <li class="nav-divider">
+                        Website
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{route('admin_setting')}}"><i class="fas fa-fw fa-cog"></i>Settings</a>
+                    </li>
                 </ul>
             </div>
         </nav>

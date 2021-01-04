@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('assets')}}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/css/plugins.css">
     <link rel="stylesheet" href="{{asset('assets')}}/style.css">
+    <link rel="stylesheet" href="{{asset('assets')}}/admin/vendor/fonts/fontawesome/css/fontawesome-all.css">
 
     <!-- Custom css -->
     <link rel="stylesheet" href="{{asset('assets')}}/css/custom.css">

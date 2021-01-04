@@ -50,7 +50,7 @@
                                     <label for="category_id">Category:</label>
                                     <select id="category_id" name="category_id" class="form-control">
                                         @foreach($datalist as $rs)
-                                        <option value="{{$rs->id}}" @if ($rs->id == $data->category_id) selected="selected" @endif>{{$rs->title}}</option>
+                                            <option value="{{$rs->id}}" @if ($rs->id == $data->category_id) selected="selected" @endif>{{$rs->title}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -118,13 +118,13 @@
                                     <input id="slug" type="text" name="slug" value="{{$data->slug}}" class="form-control">
                                 </div>
                                 @if ($data->image)
-                                <div class="form-group">
-                                    <img src="{{Storage::url($data->image)}}" style="border:1px solid #aaa;" alt="{{$data->title}}"/>
-                                </div>
+                                    <div class="form-group">
+                                        <img src="{{Storage::url($data->image)}}" style="border:1px solid #aaa;" alt="{{$data->title}}"/>
+                                    </div>
                                 @endif
                                 <div class="form-group">
                                     <label for="image">Image:</label>
-                                    <input id="image" type="file" name="image">
+                                    <input id="image" type="file" name="image" value="{{$data->image}}">
                                 </div>
                                 <div class="form-group">
                                     <button href="#" type="submit" class="btn btn-primary">Update Product</button>
@@ -135,7 +135,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
 @endsection
 
 

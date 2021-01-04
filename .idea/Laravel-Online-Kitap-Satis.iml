@@ -139,5 +139,6 @@
     <orderEntry type="library" name="dataTables.rowGroup" level="application" />
     <orderEntry type="library" name="dataTables.select" level="application" />
     <orderEntry type="library" name="dataTables.fixedHeader" level="application" />
+    <orderEntry type="library" name="ckeditor" level="application" />
   </component>
 </module>
