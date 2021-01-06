@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
 
+    public static function categoryList(){
+        return Category::where('parent_id','=',0)->with('children')->get();
+    }
+
     ##### Anasayfa #####
     public function index(){
-
         return view('home.index');
     }
 

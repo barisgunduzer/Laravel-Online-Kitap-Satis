@@ -67,7 +67,7 @@
                                         <li class="title">Collections</li>
                                         <li><a href="shop-grid.html">Science </a></li>
                                         <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-                                        <li><a href="shop-grid.html">Self-Improvemen</a></li>
+                                        <li><a href="shop-grid.html">Self-Improvement</a></li>
                                         <li><a href="shop-grid.html">Home & Garden</a></li>
                                         <li><a href="shop-grid.html">Humor Books</a></li>
                                     </ul>
@@ -93,26 +93,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="drop"><a href="#">Pages</a>
-                                <div class="megamenu dropdown">
-                                    <ul class="item item01">
-                                        <li><a href="about.html">About Page</a></li>
-                                        <li class="label2"><a href="portfolio.html">Portfolio</a>
-                                            <ul>
-                                                <li><a href="portfolio.html">Portfolio</a></li>
-                                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="my-account.html">My Account</a></li>
-                                        <li><a href="cart.html">Cart Page</a></li>
-                                        <li><a href="checkout.html">Checkout Page</a></li>
-                                        <li><a href="wishlist.html">Wishlist Page</a></li>
-                                        <li><a href="error404.html">404 Page</a></li>
-                                        <li><a href="faq.html">Faq Page</a></li>
-                                        <li><a href="team.html">Team Page</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                            @include('layouts._category')
                             <li class="drop"><a href="blog.html">Blog</a>
                                 <div class="megamenu dropdown">
                                     <ul class="item item01">

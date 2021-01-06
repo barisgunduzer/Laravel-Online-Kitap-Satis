@@ -29,7 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $datalist = Category::all();
+        #$datalist = Category::all();
+        $datalist = Category::with('children')->get();
         return view('admin.product_add',['datalist' => $datalist]);
     }
 
@@ -57,7 +58,9 @@ class ProductController extends Controller
         $data->author_name = $request->input('author_name');
         $data->publisher_name = $request->input('publisher_name');
         $data->ISBN = $request->input('ISBN');
-        $data->image = Storage::putFile('images',$request->file('image'));
+        if($request->file('image') != NULL) {
+            $data->image = Storage::putFile('images', $request->file('image'));
+        }
         $data->save();
         return redirect()->route('admin_products');
     }
@@ -82,7 +85,8 @@ class ProductController extends Controller
     public function edit(Product $product, $id)
     {
         $data = Product::find($id);
-        $datalist = Category::all();
+        #$datalist = Category::all();
+        $datalist = Category::with('children')->get();
         return view('admin.product_edit',['data' => $data],['datalist' => $datalist]);
     }
 

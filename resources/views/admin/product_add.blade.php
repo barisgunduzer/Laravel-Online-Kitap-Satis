@@ -50,7 +50,7 @@
                                     <label for="category_id">Category:</label>
                                     <select id="category_id" name="category_id" class="form-control">
                                         @foreach($datalist as $rs)
-                                        <option value="{{$rs->id}}">{{$rs->title}}</option>
+                                            <option value="{{$rs->id}}">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="price" class="col-form-label">Price:</label>
-                                    <input id="price" type="number" name="price" value="0" class="form-control">
+                                    <input id="price" type="number" name="price" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="tax" class="col-form-label">Tax:</label>

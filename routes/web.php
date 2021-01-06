@@ -32,8 +32,8 @@ Route::get('/', function () {
 });*/
 
 #Home
-Route::redirect('/','/home');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::redirect('/home','/');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 #About Us
 Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
