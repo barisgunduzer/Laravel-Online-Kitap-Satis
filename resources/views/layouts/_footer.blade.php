@@ -1,3 +1,6 @@
+@php
+    $setting = \App\Http\Controllers\HomeController::getsetting();
+@endphp
 <!-- Start Footer Area -->
 <footer id="wn__footer" class="footer__area bg__cat--8 brown--color">
     <div class="footer-static-top">
@@ -6,25 +9,23 @@
                 <div class="col-lg-12">
                     <div class="footer__widget footer__menu">
                         <div class="ft__logo">
-                            <a href="index.html">
+                            <a href="{{route('home')}}">
                                 <img src="{{asset('assets')}}/images/logo/3.png" alt="logo">
                             </a>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages</p>
+                            <p>{{$setting->description}}</p><br>
                         </div>
                         <div class="footer__content">
                             <ul class="social__net social__net--2 d-flex justify-content-center">
-                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                @if ($setting->facebook != null) <li><a href="{{$setting->facebook}}" target="_blank"><i class="fab fa-facebook"></i></a></li> @endif
+                                @if ($setting->instagram != null) <li><a href="{{$setting->instagram}}"><i class="fab fa-instagram"></i></a></li> @endif
+                                @if ($setting->twitter != null) <li><a href="{{$setting->twitter}}"><i class="fab fa-twitter"></i></a></li> @endif
+                                @if ($setting->youtube != null) <li><a href="{{$setting->youtube}}"><i class="fab fa-youtube"></i></a></li> @endif
                             </ul>
                             <ul class="mainmenu d-flex justify-content-center">
-                                <li><a href="index.html">Trending</a></li>
-                                <li><a href="index.html">Best Seller</a></li>
-                                <li><a href="index.html">All Product</a></li>
-                                <li><a href="index.html">Wishlist</a></li>
-                                <li><a href="index.html">Blog</a></li>
-                                <li><a href="index.html">Contact</a></li>
+                                <li><a href="index.html">İletişim</a></li>
+                                <li><a href="index.html">Hakkımızda</a></li>
+                                <li><a href="index.html">Yardım/SSS</a></li>
+                                <li><a href="index.html">İşlem Merkezi</a></li>
                             </ul>
                         </div>
                     </div>
@@ -38,7 +39,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="copyright">
                         <div class="copy__right__inner text-left">
-                            <p><i class="fa fa-copyright"></i> <a href="https://github.com/barisgunduzer">barisgunduzer</a> Tüm Hakları Saklıdır</p>
+                            <p><script>document.write(new Date().getFullYear());</script> | <a href="https://github.com/barisgunduzer">barisgunduzer</a> | {{$setting->company}}</p>
                         </div>
                     </div>
                 </div>

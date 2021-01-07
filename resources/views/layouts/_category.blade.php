@@ -1,8 +1,8 @@
 @php
-    $parentCategories = \App\Http\Controllers\HomeController::categoryList()
+    $parentCategories = \App\Http\Controllers\HomeController::categorylist()
 @endphp
 
-<li class="drop"><a href="#">Categories</a>
+<li class="drop"><a href="#" style="text-transform:none">Kategoriler</a>
     <div class="megamenu dropdown">
         <ul class="item item01">
             @foreach($parentCategories as $rs)

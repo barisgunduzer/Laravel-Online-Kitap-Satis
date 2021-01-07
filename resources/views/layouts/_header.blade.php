@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-6 col-lg-2">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="{{route('home')}}">
                             <img src="{{asset('assets')}}/images/logo/logo.png" alt="logo images">
                         </a>
                     </div>
@@ -18,8 +18,7 @@
                 <div class="col-lg-8 d-none d-lg-block">
                     <nav class="mainmenu__nav">
                         <ul class="meninmenu d-flex justify-content-start">
-                            <li class="drop with--one--item"><a href="index.html">Anasayfa</a></li>
-                            <li class="drop"><a href="#">Shop</a>
+                            <li class="drop"><a href="#" style="text-transform:none">Alışveriş</a>
                                 <div class="megamenu mega03">
                                     <ul class="item item03">
                                         <li class="title">Shop Layout</li>
@@ -45,18 +44,13 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="drop"><a href="shop-grid.html">Books</a>
+                            <li class="drop"><a href="shop-grid.html" style="text-transform:none">Kitap</a>
                                 <div class="megamenu mega03">
                                     <ul class="item item03">
-                                        <li class="title">Categories</li>
-                                        <li><a href="shop-grid.html">Biography </a></li>
-                                        <li><a href="shop-grid.html">Business </a></li>
-                                        <li><a href="shop-grid.html">Cookbooks </a></li>
-                                        <li><a href="shop-grid.html">Health & Fitness </a></li>
-                                        <li><a href="shop-grid.html">History </a></li>
+                                        @include('home._menu')
                                     </ul>
                                     <ul class="item item03">
-                                        <li class="title">Customer Favourite</li>
+                                        <li class="title" style="text-transform:none">En Çok Satanlar</li>
                                         <li><a href="shop-grid.html">Mystery</a></li>
                                         <li><a href="shop-grid.html">Religion & Inspiration</a></li>
                                         <li><a href="shop-grid.html">Romance</a></li>
@@ -64,7 +58,7 @@
                                         <li><a href="shop-grid.html">Sleeveless</a></li>
                                     </ul>
                                     <ul class="item item03">
-                                        <li class="title">Collections</li>
+                                        <li class="title" style="text-transform:none">Koleksiyonlar</li>
                                         <li><a href="shop-grid.html">Science </a></li>
                                         <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
                                         <li><a href="shop-grid.html">Self-Improvement</a></li>
@@ -73,7 +67,119 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="drop"><a href="shop-grid.html">Kids</a>
+                            <li class="drop"><a href="shop-grid.html" style="text-transform:none">Kitaplar</a>
+                                <div class="megamenu mega03">
+                                    <ul class="item item03">
+                                        <li class="title" style="text-transform:none">Kategoriler</li>
+                                        <li><a href="shop-grid.html">Biography </a></li>
+                                        <li><a href="shop-grid.html">Business </a></li>
+                                        <li><a href="shop-grid.html">Cookbooks </a></li>
+                                        <li><a href="shop-grid.html">Health & Fitness </a></li>
+                                        <li><a href="shop-grid.html">History </a></li>
+                                    </ul>
+                                    <ul class="item item03">
+                                        <li class="title" style="text-transform:none">En Çok Satanlar</li>
+                                        <li><a href="shop-grid.html">Mystery</a></li>
+                                        <li><a href="shop-grid.html">Religion & Inspiration</a></li>
+                                        <li><a href="shop-grid.html">Romance</a></li>
+                                        <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
+                                        <li><a href="shop-grid.html">Sleeveless</a></li>
+                                    </ul>
+                                    <ul class="item item03">
+                                        <li class="title" style="text-transform:none">Koleksiyonlar</li>
+                                        <li><a href="shop-grid.html">Science </a></li>
+                                        <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
+                                        <li><a href="shop-grid.html">Self-Improvement</a></li>
+                                        <li><a href="shop-grid.html">Home & Garden</a></li>
+                                        <li><a href="shop-grid.html">Humor Books</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="drop"><a href="shop-grid.html" style="text-transform:none">Kitaplar</a>
+                                <div class="megamenu mega03">
+                                    <ul class="item item03">
+                                        <li class="title" style="text-transform:none">Kategoriler</li>
+                                        <li><a href="shop-grid.html">Biography </a></li>
+                                        <li><a href="shop-grid.html">Business </a></li>
+                                        <li><a href="shop-grid.html">Cookbooks </a></li>
+                                        <li><a href="shop-grid.html">Health & Fitness </a></li>
+                                        <li><a href="shop-grid.html">History </a></li>
+                                    </ul>
+                                    <ul class="item item03">
+                                        <li class="title" style="text-transform:none">En Çok Satanlar</li>
+                                        <li><a href="shop-grid.html">Mystery</a></li>
+                                        <li><a href="shop-grid.html">Religion & Inspiration</a></li>
+                                        <li><a href="shop-grid.html">Romance</a></li>
+                                        <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
+                                        <li><a href="shop-grid.html">Sleeveless</a></li>
+                                    </ul>
+                                    <ul class="item item03">
+                                        <li class="title" style="text-transform:none">Koleksiyonlar</li>
+                                        <li><a href="shop-grid.html">Science </a></li>
+                                        <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
+                                        <li><a href="shop-grid.html">Self-Improvement</a></li>
+                                        <li><a href="shop-grid.html">Home & Garden</a></li>
+                                        <li><a href="shop-grid.html">Humor Books</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="drop"><a href="shop-grid.html" style="text-transform:none">Kitaplar</a>
+                                <div class="megamenu mega03">
+                                    <ul class="item item03">
+                                        <li class="title" style="text-transform:none">Kategoriler</li>
+                                        <li><a href="shop-grid.html">Biography </a></li>
+                                        <li><a href="shop-grid.html">Business </a></li>
+                                        <li><a href="shop-grid.html">Cookbooks </a></li>
+                                        <li><a href="shop-grid.html">Health & Fitness </a></li>
+                                        <li><a href="shop-grid.html">History </a></li>
+                                    </ul>
+                                    <ul class="item item03">
+                                        <li class="title" style="text-transform:none">En Çok Satanlar</li>
+                                        <li><a href="shop-grid.html">Mystery</a></li>
+                                        <li><a href="shop-grid.html">Religion & Inspiration</a></li>
+                                        <li><a href="shop-grid.html">Romance</a></li>
+                                        <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
+                                        <li><a href="shop-grid.html">Sleeveless</a></li>
+                                    </ul>
+                                    <ul class="item item03">
+                                        <li class="title" style="text-transform:none">Koleksiyonlar</li>
+                                        <li><a href="shop-grid.html">Science </a></li>
+                                        <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
+                                        <li><a href="shop-grid.html">Self-Improvement</a></li>
+                                        <li><a href="shop-grid.html">Home & Garden</a></li>
+                                        <li><a href="shop-grid.html">Humor Books</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="drop"><a href="shop-grid.html" style="text-transform:none">Kitaplar</a>
+                                <div class="megamenu mega03">
+                                    <ul class="item item03">
+                                        <li class="title">Kategoriler</li>
+                                        <li><a href="shop-grid.html">Biography </a></li>
+                                        <li><a href="shop-grid.html">Business </a></li>
+                                        <li><a href="shop-grid.html">Cookbooks </a></li>
+                                        <li><a href="shop-grid.html">Health & Fitness </a></li>
+                                        <li><a href="shop-grid.html">History </a></li>
+                                    </ul>
+                                    <ul class="item item03">
+                                        <li class="title">En Çok Satanlar</li>
+                                        <li><a href="shop-grid.html">Mystery</a></li>
+                                        <li><a href="shop-grid.html">Religion & Inspiration</a></li>
+                                        <li><a href="shop-grid.html">Romance</a></li>
+                                        <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
+                                        <li><a href="shop-grid.html">Sleeveless</a></li>
+                                    </ul>
+                                    <ul class="item item03">
+                                        <li class="title">Koleksiyonlar</li>
+                                        <li><a href="shop-grid.html">Science </a></li>
+                                        <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
+                                        <li><a href="shop-grid.html">Self-Improvement</a></li>
+                                        <li><a href="shop-grid.html">Home & Garden</a></li>
+                                        <li><a href="shop-grid.html">Humor Books</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="drop"><a href="shop-grid.html" style="text-transform:none">Çocuk</a>
                                 <div class="megamenu mega02">
                                     <ul class="item item02">
                                         <li class="title">Top Collections</li>
@@ -94,15 +200,6 @@
                                 </div>
                             </li>
                             @include('layouts._category')
-                            <li class="drop"><a href="blog.html">Blog</a>
-                                <div class="megamenu dropdown">
-                                    <ul class="item item01">
-                                        <li><a href="blog.html">Blog Page</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="contact.html">İletişim</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -237,16 +334,21 @@
                                     </div>
                                     <div class="switcher-currency">
                                         <strong class="label switcher-label">
-                                            <span>My Account</span>
+                                            <span>@auth{{Auth::user()->name}}@endauth</span>
                                         </strong>
                                         <div class="switcher-options">
                                             <div class="switcher-currency-trigger">
                                                 <div class="setting__menu">
-                                                    <span><a href="#">Compare Product</a></span>
-                                                    <span><a href="#">My Account</a></span>
-                                                    <span><a href="#">My Wishlist</a></span>
-                                                    <span><a href="#">Sign In</a></span>
-                                                    <span><a href="#">Create An Account</a></span>
+                                                    @auth
+                                                        <span><a href="{{route('myprofile')}}">Hesabım</a></span>
+                                                        <span><a href="#">Siparişlerim</a></span>
+                                                        <span><a href="#">Favorilerim</a></span>
+                                                        <span><a href="{{route('logout')}}">Çıkış</a></span>
+                                                    @endauth
+                                                    @guest
+                                                        <span><a href="{{route('admin_login')}}">Giriş Yap</a></span>
+                                                        <span><a href="#">Üye Ol</a></span>
+                                                    @endguest
                                                 </div>
                                             </div>
                                         </div>

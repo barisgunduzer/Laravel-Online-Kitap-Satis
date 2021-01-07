@@ -1,12 +1,12 @@
 @extends('layouts.home')
 
-@section('title','Kitap Sokağı - Kitapseverlerin Buluşma Adresi')
+@section('title',$setting->title)
 
-@section('description','Dünya klasiklerinden, çocuk edebiyatına; kırtasiye malzemelerinden hobi ve elektroniğe varan yüzlerce kategoriden binlerce ürün sizleri bekliyor!')
+@section('description',$setting->description)
 
-@section('keywords','kitap, roman, türk edebiyatı, klasik batı edebiyatı, şiir, fantezi, bilim kurgu')
+@section('keywords',$setting->keywords)
 
-@section('author','barisgunduzer')
+@section('author',$setting->author)
 
 @section('content')
 

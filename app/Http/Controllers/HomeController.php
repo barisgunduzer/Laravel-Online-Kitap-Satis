@@ -10,17 +10,40 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
 
-    public static function categoryList(){
+    public static function categorylist(){
         return Category::where('parent_id','=',0)->with('children')->get();
+    }
+
+    public static function getsetting(){
+        return Setting::first();
     }
 
     ##### Anasayfa #####
     public function index(){
-        return view('home.index');
+        $setting = Setting::first();
+        return view('home.index',['setting'=>$setting]);
     }
 
     ##### Hakkımızda #####
     public function aboutus(){
+
+        return view('home.aboutus');
+    }
+
+    ##### Hakkımızda #####
+    public function references(){
+
+        return view('home.aboutus');
+    }
+
+    ##### İletişim #####
+    public function contact(){
+
+        return view('home.aboutus');
+    }
+
+    ##### Sıkça Sorulan Sorular #####
+    public function faq(){
 
         return view('home.aboutus');
     }
