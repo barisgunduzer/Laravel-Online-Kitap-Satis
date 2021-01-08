@@ -16,6 +16,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public static function allbooks()
+    {
+        return Product::all();
+
+    }
+
     public function index()
     {
         $datalist = Product::all();

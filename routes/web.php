@@ -43,7 +43,6 @@ Route::get('/references', [HomeController::class, 'references'])->name('referenc
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
-
 #Admin
 Route::middleware('auth')->prefix('admin')->group(function(){
 
@@ -85,6 +84,10 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 #User
 Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function(){
     Route::get('/', [UserController::class, 'index'])->name('myprofile');
+});
+
+Route::middleware('auth')->prefix('user')->namespace('user')->group(function(){
+    Route::get('/profile', [UserController::class, 'index'])->name('userprofile');
 });
 
 #Admin Login

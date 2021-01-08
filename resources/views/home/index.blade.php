@@ -1,3 +1,8 @@
+@php
+    $books = \App\Http\Controllers\Admin\ProductController::allbooks();
+    $setting = \App\Http\Controllers\HomeController::getsetting();
+@endphp
+
 @extends('layouts.home')
 
 @section('title',$setting->title)

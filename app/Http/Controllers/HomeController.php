@@ -20,8 +20,7 @@ class HomeController extends Controller
 
     ##### Anasayfa #####
     public function index(){
-        $setting = Setting::first();
-        return view('home.index',['setting'=>$setting]);
+        return view('home.index');
     }
 
     ##### Hakkımızda #####

@@ -4,9 +4,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section__title text-center">
-                    <h2 class="title__be--2">Yeni Çıkan <span class="color--theme">Kitaplar</span></h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                        suffered lebmid alteration in some ledmid form</p>
+                    <h2 class="title__be--2" style="text-transform:none">YENİ <span class="color--theme">ÇIKANLAR</span></h2>
+                    <p> Yeni çıkan kitaplarımız</p>
                 </div>
             </div>
         </div>
@@ -21,7 +20,7 @@
                         <a class="second__img animation1" href="single-product.html"><img
                                 src="{{asset('assets')}}/images/books/2.jpg" alt="product image"></a>
                         <div class="hot__box">
-                            <span class="hot-label">BEST SALLER</span>
+                            <span class="hot-label" style="text-transform:none">EN ÇOK SATAN</span>
                         </div>
                     </div>
                     <div class="product__content content--center">
@@ -66,7 +65,7 @@
                         <a class="second__img animation1" href="single-product.html"><img
                                 src="{{asset('assets')}}/images/books/4.jpg" alt="product image"></a>
                         <div class="hot__box color--2">
-                            <span class="hot-label">HOT</span>
+                            <span class="hot-label" style="text-transform:none">YENİ</span>
                         </div>
                     </div>
                     <div class="product__content content--center">
@@ -111,7 +110,7 @@
                         <a class="second__img animation1" href="single-product.html"><img src="{{asset('assets')}}/images/books/6.jpg"
                                                                                           alt="product image"></a>
                         <div class="hot__box">
-                            <span class="hot-label">BEST SALLER</span>
+                            <span class="hot-label">EN ÇOK SATAN</span>
                         </div>
                     </div>
                     <div class="product__content content--center">
@@ -156,7 +155,7 @@
                         <a class="second__img animation1" href="single-product.html"><img src="{{asset('assets')}}/images/books/8.jpg"
                                                                                           alt="product image"></a>
                         <div class="hot__box">
-                            <span class="hot-label">HOT</span>
+                            <span class="hot-label" style="text-transform:none">YENİ</span>
                         </div>
                     </div>
                     <div class="product__content content--center">
@@ -201,7 +200,7 @@
                         <a class="second__img animation1" href="single-product.html"><img src="{{asset('assets')}}/images/books/10.jpg"
                                                                                           alt="product image"></a>
                         <div class="hot__box">
-                            <span class="hot-label">HOT</span>
+                            <span class="hot-label" style="text-transform:none">YENİ</span>
                         </div>
                     </div>
                     <div class="product__content content--center">
@@ -246,7 +245,7 @@
                         <a class="second__img animation1" href="single-product.html"><img src="{{asset('assets')}}/images/books/2.jpg"
                                                                                           alt="product image"></a>
                         <div class="hot__box">
-                            <span class="hot-label">BEST SALER</span>
+                            <span class="hot-label" style="text-transform:none">EN ÇOK SATAN</span>
                         </div>
                     </div>
                     <div class="product__content content--center content--center">

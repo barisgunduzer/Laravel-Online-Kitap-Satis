@@ -1,6 +1,7 @@
 @php
     $setting = \App\Http\Controllers\HomeController::getsetting();
 @endphp
+
 <!-- Start Footer Area -->
 <footer id="wn__footer" class="footer__area bg__cat--8 brown--color">
     <div class="footer-static-top">

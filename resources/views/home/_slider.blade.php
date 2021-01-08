@@ -10,7 +10,7 @@
                             <h2><span>Sevdiğiniz bütün </span></h2>
                             <h2><span>kitapları</span> buradan </h2>
                             <h2>satın alabilirsiniz</h2>
-                            <a class="shopbtn" href="#">Şimdi alışveriş yap</a>
+                            <a class="shopbtn" href="#" style="text-transform:none">Şimdi alışveriş yap</a>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                             <h2>Sevdiğiniz <span>bütün </span></h2>
                             <h2>kitapları <span>buradan </span></h2>
                             <h2>satın <span>alabilirsiniz</span></h2>
-                            <a class="shopbtn" href="#">Şimdi alışveriş yap</a>
+                            <a class="shopbtn" href="#" style="text-transform:none">Şimdi alışveriş yap</a>
                         </div>
                     </div>
                 </div>
