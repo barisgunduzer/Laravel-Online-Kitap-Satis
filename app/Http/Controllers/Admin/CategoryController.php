@@ -34,7 +34,7 @@ class CategoryController extends Controller
         #$datalist = DB::select('select * from categories');
         #$datalist = DB::table('categories')->get();
         $datalist = Category::with('children')->get();
-        return view('admin.category',['datalist' => $datalist]);
+        return view('admin.category',['datalist' => $datalist])->with('success','Book category was deleted successfully.');
     }
 
     /**

@@ -1,12 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Category List')
-
-@section('description','Dünya klasiklerinden, çocuk edebiyatına; kırtasiye malzemelerinden hobi ve elektroniğe varan yüzlerce kategoriden binlerce ürün sizleri bekliyor!')
-
-@section('keywords','kitap, roman, türk edebiyatı, klasik batı edebiyatı, şiir, fantezi, bilim kurgu')
-
-@section('author','barisgunduzer')
+@section('title','Message List')
 
 @section('css')<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/vendor/datatables/css/dataTables.bootstrap4.css">
 <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/vendor/datatables/css/buttons.bootstrap4.css">
@@ -27,13 +21,12 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">Category List </h2>
+                        <h2 class="pageheader-title">Message List</h2>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                    <!-- <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Categories</a></li> -->
-                                    <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Messages</li>
                                 </ol>
                             </nav>
                         </div>
@@ -43,13 +36,12 @@
             <!-- ============================================================== -->
             <!-- end pageheader -->
             <!-- ============================================================== -->
-            @include('home.message')
-            <a href="{{route('admin_category_add')}}" class="btn btn-success">Add Category</a>
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table  -->
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    @include('home.message')
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -57,23 +49,30 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Parent</th>
-                                        <th>Title(s)</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Subject</th>
+                                        <th>Message</th>
+                                        <th>Note</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
                                         <th>Status</th>
-                                        <th colspan="2">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($datalist as $rs)
                                     <tr>
                                         <td>{{$rs->id}}</td>
-                                        <td>
-                                            {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}
-                                        </td>
-                                        <td>{{$rs->title}}</td>
+                                        <td>{{$rs->name}}</td>
+                                        <td>{{$rs->email}}</td>
+                                        <td>{{$rs->phone}}</td>
+                                        <td>{{$rs->subject}}</td>
+                                        <td>{{$rs->message}}</td>
+                                        <td>{{$rs->note}}</td>
+                                        <td><a href="{{route('admin_message_edit',['id' => $rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700') "><i class="fas fa-edit"></i></a></td>
+                                        <td><a href="{{route('admin_message_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a></td>
                                         <td>{{$rs->status}}</td>
-                                        <td><a href="{{route('admin_category_edit',['id' => $rs->id])}}"><i class="fas fa-edit"></i></a></td>
-                                        <td><a href="{{route('admin_category_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a></td>
                                     </tr>
                                     @endforeach
                                     </tbody>
@@ -110,6 +109,3 @@
             <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
             <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
 @endsection
-
-
-

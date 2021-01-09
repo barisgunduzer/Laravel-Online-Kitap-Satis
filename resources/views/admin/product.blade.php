@@ -43,6 +43,7 @@
             <!-- ============================================================== -->
             <!-- end pageheader -->
             <!-- ============================================================== -->
+            @include('home.message')
             <a href="{{route('admin_product_add')}}" class="btn btn-success">Add Product</a>
             <div class="row">
                 <!-- ============================================================== -->
@@ -66,7 +67,8 @@
                                         <th>Image</th>
                                         <th>Gallery</th>
                                         <th>Status</th>
-                                        <th colspan="2">Actions</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>

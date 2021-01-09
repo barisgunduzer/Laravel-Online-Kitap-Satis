@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
@@ -41,6 +42,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
 #Admin
@@ -68,12 +70,22 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::get('show', [ProductController::class, 'show'])->name('admin_product_show');
     });
 
+
     #Product Image Gallery
     Route::prefix('image')->group(function(){
         Route::get('create/{product_id}', [ImageController::class, 'create'])->name('admin_image_add');
         Route::post('store/{product_id}', [ImageController::class, 'store'])->name('admin_image_store');
         Route::get('delete/{product_id}/{id}', [ImageController::class, 'destroy'])->name('admin_image_delete');
         Route::get('show', [ImageController::class, 'show'])->name('admin_image_show');
+    });
+
+    #Message
+    Route::prefix('messages')->group(function(){
+        Route::get('/', [MessageController::class, 'index'])->name('admin_message');
+        Route::get('edit/{id}', [MessageController::class, 'edit'])->name('admin_message_edit');
+        Route::post('update/{id}', [MessageController::class, 'update'])->name('admin_message_update');
+        Route::get('delete/{id}', [MessageController::class, 'destroy'])->name('admin_message_delete');
+        Route::get('show', [MessageController::class, 'show'])->name('admin_message_show');
     });
 
     #Setting

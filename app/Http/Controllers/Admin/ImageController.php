@@ -93,6 +93,6 @@ class ImageController extends Controller
     {
         $data = Image::find($id);
         $data->delete();
-        return redirect()->route('admin_image_add',['product_id'=>$product_id]);
+        return redirect()->route('admin_image_add',['product_id'=>$product_id])->with('success','Image was deleted successfully.');;
     }
 }

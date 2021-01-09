@@ -23,6 +23,9 @@
                         Website
                     </li>
                     <li class="nav-item ">
+                        <a class="nav-link" href="{{route('admin_message')}}"><i class="fas fa-fw fa-paper-plane"></i>Contact Messages</a>
+                    </li>
+                    <li class="nav-item ">
                         <a class="nav-link" href="{{route('admin_setting')}}"><i class="fas fa-fw fa-cog"></i>Settings</a>
                     </li>
                 </ul>

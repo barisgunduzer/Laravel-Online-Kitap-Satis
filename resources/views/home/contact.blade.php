@@ -27,15 +27,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-12">
+                    @include('home.message')
                     <div class="contact-form-wrap">
                         <h2 class="contact__title" style="text-transform:none">İletişim Formu</h2>
-                        <form id="contact-form" action="#" method="post">
+                        <form id="contact-form" action="{{route('sendmessage')}}" method="post">
+                            @csrf
                             <div class="single-contact-form space-between">
-                                <input type="text" name="firstname" placeholder="Adınız">
-                                <input type="text" name="lastname" placeholder="Soyadınız">
+                                <input type="text" name="name" placeholder="Adınız ve Soyadınız">
                             </div>
                             <div class="single-contact-form space-between">
                                 <input type="email" name="email" placeholder="Email">
+                                <input type="text" name="phone" placeholder="Telefon">
                             </div>
                             <div class="single-contact-form">
                                 <input type="text" name="subject" placeholder="Konu">
@@ -48,9 +50,9 @@
                             </div>
                         </form>
                     </div>
-                    <div class="form-output">
+                    <!--<div class="form-output">
                         <p class="form-messege">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-4 col-12 md-mt-40 sm-mt-40">
                     <div class="wn__address">

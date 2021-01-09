@@ -139,6 +139,6 @@ class ProductController extends Controller
         # DB::table('products')->where('id','=', $id)->delete();
         $data = Product::find($id);
         $data->delete();
-        return redirect()->route('admin_products');
+        return redirect()->route('admin_products')->with('success','Book was deleted successfully.');
     }
 }

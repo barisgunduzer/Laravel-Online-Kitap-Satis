@@ -15,6 +15,7 @@
 <body>
 <div class="row" style="margin: 10px;margin-top: 25px">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        @include('home.message')
         <div class="card">
             <div class="card-body">
                 <form action="{{route('admin_image_store',['product_id'=>$data->id])}}" method="post" enctype="multipart/form-data">
