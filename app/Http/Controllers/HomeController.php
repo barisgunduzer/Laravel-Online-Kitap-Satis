@@ -20,31 +20,32 @@ class HomeController extends Controller
 
     ##### Anasayfa #####
     public function index(){
-        return view('home.index');
+        $setting = Setting::first();
+        return view('home.index',['setting'=>$setting]);
     }
 
     ##### Hakkımızda #####
     public function aboutus(){
-
-        return view('home.aboutus');
+        $setting = Setting::first();
+        return view('home.aboutus',['setting'=>$setting]);
     }
 
-    ##### Hakkımızda #####
+    ##### References #####
     public function references(){
-
-        return view('home.aboutus');
+        $setting = Setting::first();
+        return view('home.references',['setting'=>$setting]);
     }
 
     ##### İletişim #####
     public function contact(){
-
-        return view('home.aboutus');
+        $setting = Setting::first();
+        return view('home.contact',['setting'=>$setting]);
     }
 
     ##### Sıkça Sorulan Sorular #####
     public function faq(){
 
-        return view('home.aboutus');
+        return view('home.faq');
     }
 
     ##### Giriş Sayfası #####

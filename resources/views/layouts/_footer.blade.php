@@ -23,10 +23,10 @@
                                 @if ($setting->youtube != null) <li><a href="{{$setting->youtube}}"><i class="fab fa-youtube"></i></a></li> @endif
                             </ul>
                             <ul class="mainmenu d-flex justify-content-center">
-                                <li><a href="index.html">İletişim</a></li>
-                                <li><a href="index.html">Hakkımızda</a></li>
-                                <li><a href="index.html">Yardım/SSS</a></li>
-                                <li><a href="index.html">İşlem Merkezi</a></li>
+                                <li><a href="{{route('contact')}}">İletişim</a></li>
+                                <li><a href="{{route('aboutus')}}">Hakkımızda</a></li>
+                                <li><a href="{{route('faq')}}">Yardım/SSS</a></li>
+                                <li><a href="#">İşlem Merkezi</a></li>
                             </ul>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="copyright">
                         <div class="copy__right__inner text-left">
-                            <p><script>document.write(new Date().getFullYear());</script> | <a href="https://github.com/barisgunduzer">barisgunduzer</a> | {{$setting->company}}</p>
+                            <p><i class="fa fa-copyright"></i> <a href="https://github.com/barisgunduzer">barisgunduzer</a> | <script>document.write(new Date().getFullYear());</script> {{$setting->company}} | Tüm Hakları Saklıdır</p>
                         </div>
                     </div>
                 </div>

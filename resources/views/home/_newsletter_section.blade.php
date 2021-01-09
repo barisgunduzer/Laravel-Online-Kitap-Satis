@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-7 offset-lg-5 col-md-12 col-12 ptb--150">
                 <div class="section__title text-center">
-                    <h2>Bizimle Kalın</h2>
+                    <h2 style="text-transform:none">Bizimle Kalın</h2>
                 </div>
                 <div class="newsletter__block text-center">
                     <p>Yeni çıkan kitaplar, güncel koleksiyonlar ve ayrıcalıklı teklifler için bültenimize abone olabilirsiniz.</p>
