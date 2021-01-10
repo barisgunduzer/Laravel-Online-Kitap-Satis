@@ -27,7 +27,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-12">
-                    @include('home.message')
                     <div class="contact-form-wrap">
                         <h2 class="contact__title" style="text-transform:none">İletişim Formu</h2>
                         <form id="contact-form" action="{{route('sendmessage')}}" method="post">
@@ -65,7 +64,6 @@
                                     <p>{{$setting->address}}</p>
                                 </div>
                             </div>
-
                             <div class="single__address">
                                 <i class="icon-phone icons"></i>
                                 <div class="content">
@@ -73,12 +71,11 @@
                                     <p>{{$setting->phone}}</p>
                                 </div>
                             </div>
-
                             <div class="single__address">
                                 <i class="icon-envelope icons"></i>
                                 <div class="content">
                                     <span style="text-transform:none">Email:</span>
-                                    <p>{{$setting->email}}</p>
+                                    <p><a href="mailto:{{$setting->email}}">{{$setting->email}}</a></p>
                                 </div>
                             </div>
 
@@ -86,15 +83,17 @@
                                 <i class="icon-globe icons"></i>
                                 <div class="content">
                                     <span style="text-transform:none">İletişim Formu:</span>
-                                    <p>www.kitapsokagi.com/contact</p>
+                                    <p><a href="{{route('contact')}}">www.kitapsokagi.com/contact</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 col-12">
+                <div class="col-lg-12 col-12" style="text-align: center;">
                     <br>
                     <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Merkez%20Mah.,%20Mecidiyek%C3%B6y%20Yolu%20Cad.%20,%C5%9Ei%C5%9Fli,%C4%B0stanbul+(Kitap%20Soka%C4%9F%C4%B1)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+                    <br>
+                    {!! $setting->contact !!}
                 </div>
             </div>
         </div>

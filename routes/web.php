@@ -45,6 +45,8 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
+Route::get('product/{id}/{slug}', [HomeController::class, 'product'])->name('product');
+
 #Admin
 Route::middleware('auth')->prefix('admin')->group(function(){
 

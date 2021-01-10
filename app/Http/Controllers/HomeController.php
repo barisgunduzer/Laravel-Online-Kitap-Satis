@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Message;
+use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,18 +12,35 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
 
+    ##### Site Önayarları #####
+    public static function getsetting(){
+        return Setting::first();
+    }
+
+    ##### Ana Kategoriler #####
     public static function categorylist(){
         return Category::where('parent_id','=',0)->with('children')->get();
     }
 
-    public static function getsetting(){
-        return Setting::first();
+    ##### Ürün Detay #####
+    public function product($id, $slug){
+        $data = Product::find($id);
+        print_r($data);
+        exit();
     }
 
     ##### Anasayfa #####
     public function index(){
         $setting = Setting::first();
-        return view('home.index',['setting'=>$setting]);
+        $slider = Product::select('id','title','author_name','image','price','slug')->limit(8)->get();
+
+        $data = [
+            'setting'=>$setting,
+            'slider'=>$slider,
+            'page'=>'home'
+        ];
+
+        return view('home.index',$data);
     }
 
     ##### Hakkımızda #####
@@ -51,7 +69,6 @@ class HomeController extends Controller
         $data->subject = $request->input('subject');
         $data->message = $request->input('message');
         $data->save();
-
         return redirect()->route('contact')->with('success','Mesajınız kaydedildi, Teşekkür ederiz.');
     }
 

@@ -23,17 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4d19f1a-caf2-4d6d-9a12-bc18ca37a339" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/367bb1f0-df84-4ef3-a35f-47339e94401e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/367bb1f0-df84-4ef3-a35f-47339e94401e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ImageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/image_add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/image_add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_09_104320_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_09_104320_create_messages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/_bestseller_section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_bestseller_section.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/_blog_section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_blog_section.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/_newbooks_section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_newbooks_section.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/contact.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -237,7 +232,7 @@
       <workItem from="1609934043488" duration="1087000" />
       <workItem from="1609936835793" duration="3310000" />
       <workItem from="1609954039194" duration="46452000" />
-      <workItem from="1610135531917" duration="25747000" />
+      <workItem from="1610135531917" duration="36865000" />
     </task>
     <servers />
   </component>
