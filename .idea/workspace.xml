@@ -25,11 +25,18 @@
     <list default="true" id="b4d19f1a-caf2-4d6d-9a12-bc18ca37a339" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_09_104320_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_09_104320_create_messages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/_bestseller_section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_bestseller_section.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/_blog_section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_blog_section.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/messages_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/messages_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/_blank.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_blank.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/_newbooks_section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/_newbooks_section.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/aboutus.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/aboutus.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/references.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/references.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/user_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/user_profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/_category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/_footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/_footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/_header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/categorytree.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/categorytree.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,16 +184,16 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/layouts" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\asus\PhpstormProjects\Laravel-Online-Kitap-Satis\resources\views\admin" />
-      <recent name="C:\Users\asus\PhpstormProjects\Laravel-Online-Kitap-Satis\resources\views\home" />
       <recent name="C:\Users\asus\PhpstormProjects\Laravel-Online-Kitap-Satis\resources\views\layouts" />
+      <recent name="C:\Users\asus\PhpstormProjects\Laravel-Online-Kitap-Satis\resources\views\home" />
+      <recent name="C:\Users\asus\PhpstormProjects\Laravel-Online-Kitap-Satis\resources\views\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\asus\PhpstormProjects\Laravel-Online-Kitap-Satis\resources\views\admin" />
@@ -232,7 +239,7 @@
       <workItem from="1609934043488" duration="1087000" />
       <workItem from="1609936835793" duration="3310000" />
       <workItem from="1609954039194" duration="46452000" />
-      <workItem from="1610135531917" duration="36865000" />
+      <workItem from="1610135531917" duration="71579000" />
     </task>
     <servers />
   </component>

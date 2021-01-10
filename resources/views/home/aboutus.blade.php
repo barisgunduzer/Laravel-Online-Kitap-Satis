@@ -2,6 +2,12 @@
 
 @section('title', $setting->company.' | Hakkımızda')
 
+@section('description',$setting->description)
+
+@section('keywords',$setting->keywords)
+
+@section('author',$setting->author)
+
 @section('content')
 
     <!-- Start Bradcaump area -->

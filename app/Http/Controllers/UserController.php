@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('home.user_profile');
+        $setting = Setting::first();
+        return view('home.user_profile',['setting'=>$setting]);
     }
 
     /**

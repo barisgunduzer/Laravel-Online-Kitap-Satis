@@ -22,12 +22,27 @@ class HomeController extends Controller
         return Category::where('parent_id','=',0)->with('children')->get();
     }
 
+    ##### Kitap Sayısı #####
+    public static function numberofbooks($id){
+        $books = Product::where('category_id','=',$id);
+        return $books->count();
+    }
+
     ##### Ürün Detay #####
     public function product($id, $slug){
         $data = Product::find($id);
         print_r($data);
         exit();
     }
+
+    ##### Ürün Kategori #####
+    public function category($id, $slug){
+        $categories = Category::all();
+        $category = Category::find($id);
+        $book = Product::where('category_id',$id)->get();
+        return view('home.category_products',['categories'=>$categories,'category'=>$category,'book'=>$book]);
+    }
+
 
     ##### Anasayfa #####
     public function index(){
@@ -49,7 +64,7 @@ class HomeController extends Controller
         return view('home.aboutus',['setting'=>$setting]);
     }
 
-    ##### References #####
+    ##### Referanslar #####
     public function references(){
         $setting = Setting::first();
         return view('home.references',['setting'=>$setting]);

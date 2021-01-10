@@ -23,8 +23,8 @@
                             </div>
                         </div>
                         <div class="product__content content--center">
-                            <h4><a href="single-product.html">{{$rs->title}}</a></h4>
                             <h4><a href="single-product.html">{{$rs->author_name}}</a></h4>
+                            <h4><a href="single-product.html">{{$rs->title}}</a></h4>
                             <ul class="prize d-flex">
                                 <li>{{$rs->price}}₺</li>
                                 <li class="old_prize">{{$rs->price+5}}₺</li>

@@ -39,13 +39,17 @@ Route::get('/', function () {
 
 #Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
-Route::get('/references', [HomeController::class, 'references'])->name('references');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
-Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/hakkimizda', [HomeController::class, 'aboutus'])->name('aboutus');
+Route::get('/referanslar', [HomeController::class, 'references'])->name('references');
+Route::get('/iletisim', [HomeController::class, 'contact'])->name('contact');
+Route::post('/gonder', [HomeController::class, 'sendmessage'])->name('sendmessage');
+Route::get('/sss', [HomeController::class, 'faq'])->name('faq');
 
-Route::get('product/{id}/{slug}', [HomeController::class, 'product'])->name('product');
+#Product Detail
+Route::get('kitap/{id}/{slug}', [HomeController::class, 'product'])->name('product');
+
+#Category List
+Route::get('kategori/{id}/{slug}', [HomeController::class, 'category'])->name('category');
 
 #Admin
 Route::middleware('auth')->prefix('admin')->group(function(){

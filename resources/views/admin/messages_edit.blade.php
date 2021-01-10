@@ -21,7 +21,7 @@
                 <form action="{{route('admin_message_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        Sent at: {{$data->created_at->format('d.m.Y h:m ')}} <br>
+                        Sent at: {{$data->created_at->format('d.m.Y H:i:s ')}} <br>
                         From: {{$data->email}}<br>
                     </div>
                     <table style="text-align:center" class="table table-striped table-bordered first">

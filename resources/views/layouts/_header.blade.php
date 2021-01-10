@@ -18,7 +18,7 @@
                 <div class="col-lg-8 d-none d-lg-block">
                     <nav class="mainmenu__nav">
                         <ul class="meninmenu d-flex justify-content-start">
-                            <li class="drop"><a href="shop-grid.html" style="text-transform:none">Kitap</a>
+                            <li class="drop"><a href="" style="text-transform:none">Kitap</a>
                                 <div class="megamenu mega03">
                                     <ul class="item item03">
                                         <li class="title" style="text-transform:none">Kategoriler</li>
@@ -26,19 +26,19 @@
                                     </ul>
                                     <ul class="item item03">
                                         <li class="title" style="text-transform:none">En Çok Satanlar</li>
-                                        <li><a href="shop-grid.html">Mystery</a></li>
-                                        <li><a href="shop-grid.html">Religion & Inspiration</a></li>
-                                        <li><a href="shop-grid.html">Romance</a></li>
-                                        <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-                                        <li><a href="shop-grid.html">Sleeveless</a></li>
+                                        <li><a href="">Mystery</a></li>
+                                        <li><a href="l">Religion & Inspiration</a></li>
+                                        <li><a href="">Romance</a></li>
+                                        <li><a href="">Fiction/Fantasy</a></li>
+                                        <li><a href="">Sleeveless</a></li>
                                     </ul>
                                     <ul class="item item03">
                                         <li class="title" style="text-transform:none">Koleksiyonlar</li>
-                                        <li><a href="shop-grid.html">Science </a></li>
-                                        <li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-                                        <li><a href="shop-grid.html">Self-Improvement</a></li>
-                                        <li><a href="shop-grid.html">Home & Garden</a></li>
-                                        <li><a href="shop-grid.html">Humor Books</a></li>
+                                        <li><a href="">Science </a></li>
+                                        <li><a href="">Fiction/Fantasy</a></li>
+                                        <li><a href="">Self-Improvement</a></li>
+                                        <li><a href="">Home & Garden</a></li>
+                                        <li><a href="">Humor Books</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -131,66 +131,20 @@
                                 <div class="content-inner">
                                     <div class="switcher-currency">
                                         <strong class="label switcher-label">
-                                            <span>Currency</span>
-                                        </strong>
-                                        <div class="switcher-options">
-                                            <div class="switcher-currency-trigger">
-                                                <span class="currency-trigger">USD - US Dollar</span>
-                                                <ul class="switcher-dropdown">
-                                                    <li>GBP - British Pound Sterling</li>
-                                                    <li>EUR - Euro</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="switcher-currency">
-                                        <strong class="label switcher-label">
-                                            <span>Language</span>
-                                        </strong>
-                                        <div class="switcher-options">
-                                            <div class="switcher-currency-trigger">
-                                                <span class="currency-trigger">English01</span>
-                                                <ul class="switcher-dropdown">
-                                                    <li>English02</li>
-                                                    <li>English03</li>
-                                                    <li>English04</li>
-                                                    <li>English05</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="switcher-currency">
-                                        <strong class="label switcher-label">
-                                            <span>Select Store</span>
-                                        </strong>
-                                        <div class="switcher-options">
-                                            <div class="switcher-currency-trigger">
-                                                <span class="currency-trigger">Fashion Store</span>
-                                                <ul class="switcher-dropdown">
-                                                    <li>Furniture</li>
-                                                    <li>Shoes</li>
-                                                    <li>Speaker Store</li>
-                                                    <li>Furniture</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="switcher-currency">
-                                        <strong class="label switcher-label">
-                                            <span>@auth{{Auth::user()->name}}@endauth</span>
+                                            <span class="color--theme">@auth{{Auth::user()->name}}@endauth</span>
                                         </strong>
                                         <div class="switcher-options">
                                             <div class="switcher-currency-trigger">
                                                 <div class="setting__menu">
                                                     @auth
-                                                        <span><a href="{{route('myprofile')}}">Hesabım</a></span>
-                                                        <span><a href="#">Siparişlerim</a></span>
-                                                        <span><a href="#">Favorilerim</a></span>
-                                                        <span><a href="{{route('logout')}}">Çıkış</a></span>
+                                                        <span><a href="{{route('myprofile')}}"><i class="far fa-user-circle"></i> Hesabım</a></span>
+                                                        <span><a href="#"><i class="far fa-hand-point-right"></i> Siparişlerim</a></span>
+                                                        <span><a href="#"><i class="far fa-heart"></i> Favorilerim</a></span>
+                                                        <span><a href="{{route('logout')}}"><i class="far fa-times-circle"></i> Çıkış</a></span>
                                                     @endauth
                                                     @guest
-                                                        <span><a href="/login">Giriş Yap</a></span>
-                                                        <span><a href="/register">Üye Ol</a></span>
+                                                            <span><a href="/login"><span class="color--theme">Giriş Yap</span></a></span>
+                                                            <span><a href="/register">Üye Ol</a></span>
                                                     @endguest
                                                 </div>
                                             </div>

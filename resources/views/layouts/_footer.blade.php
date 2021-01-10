@@ -40,7 +40,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="copyright">
                         <div class="copy__right__inner text-left">
-                            <p><i class="fa fa-copyright"></i> <a href="https://github.com/barisgunduzer">barisgunduzer</a> | <script>document.write(new Date().getFullYear());</script> {{$setting->company}} | Tüm Hakları Saklıdır</p>
+                            <p><i class="far fa-copyright"></i> <a href="https://github.com/barisgunduzer">barisgunduzer</a> | <script>document.write(new Date().getFullYear());</script> {{$setting->company}} | Tüm Hakları Saklıdır</p>
                         </div>
                     </div>
                 </div>
