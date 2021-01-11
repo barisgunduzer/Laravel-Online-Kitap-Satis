@@ -45,11 +45,17 @@ Route::get('/iletisim', [HomeController::class, 'contact'])->name('contact');
 Route::post('/gonder', [HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/sss', [HomeController::class, 'faq'])->name('faq');
 
+#Quick View
+Route::get('hizlibakis/{id}/{slug}', [HomeController::class, 'quickview'])->name('quickview');
+
 #Product Detail
 Route::get('kitap/{id}/{slug}', [HomeController::class, 'product'])->name('product');
 
-#Category List
+#Category Product List
 Route::get('kategori/{id}/{slug}', [HomeController::class, 'category'])->name('category');
+
+#Add to Cart
+Route::get('sepeteekle/{id}', [HomeController::class, 'addtocart'])->name('addtocart');
 
 #Admin
 Route::middleware('auth')->prefix('admin')->group(function(){
@@ -100,7 +106,7 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 });
 
 #User
-Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function(){
+Route::middleware('auth')->prefix('profilim')->namespace('profilim')->group(function(){
     Route::get('/', [UserController::class, 'index'])->name('myprofile');
 });
 

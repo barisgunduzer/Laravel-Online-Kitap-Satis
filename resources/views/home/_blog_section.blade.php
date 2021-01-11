@@ -4,9 +4,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section__title text-center">
-                    <h2 class="title__be--2"><span class="color--theme">Blog</span> Sayfamız</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                        suffered lebmid alteration in some ledmid form</p>
+                    <h2 class="title__be--2" style="text-transform:none"><span class="color--theme">BLOG</span> SAYFAMIZ</h2>
+                    <p>Kitap fuarları, tanıtım ve imza günleri, yazar söyleşileri gibi etkinlikleri ve yazarlık dünyasıyla ilgili bütün yazıları blogumuzdan takip edebilirsiniz.</p>
                 </div>
             </div>
         </div>

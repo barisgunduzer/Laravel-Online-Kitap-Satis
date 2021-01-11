@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title','User Profile')
+@section('title','Hesabım')
 
 @section('description',$setting->description)
 
@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="bradcaump__inner text-center">
-                        <h2 class="bradcaump-title">Hesabım</h2>
+                        <h2 class="bradcaump-title" style="text-transform:none">Hesabım</h2>
                         <nav class="bradcaump-content">
                             <a class="breadcrumb_item" href="{{route('home')}}">Anasayfa</a>
                             <span class="brd-separetor">/</span>

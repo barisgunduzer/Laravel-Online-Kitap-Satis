@@ -4,20 +4,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section__title text-center">
-                    <h2 class="title__be--2" style="text-transform:none"><span class="color--theme">YENİ </span>ÇIKANLAR</h2>
-                    <p> Yeni çıkan kitaplarımız</p>
+                    <h2 class="title__be--2" style="text-transform:none"><span class="color--theme">YENİ</span> ÇIKANLAR</h2>
                 </div>
             </div>
         </div>
         <!-- Start Single Tab Content -->
         <div class="furniture--4 border--round arrows_style owl-carousel owl-theme row mt--50">
-        @foreach($slider as $rs)
+        @foreach($newbooks as $rs)
             <!-- Start Single Product -->
                 <div class="product product__style--3">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="product__thumb">a
-                            <a class="first__img" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img
-                                    src="{{ Storage::url($rs->image)}}" alt="product image"></a>
+                        <div class="product__thumb">
+                            <a class="first__img" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{ Storage::url($rs->image)}}" alt="product image"></a>
+                            <a class="second__img animation1" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="product image"></a>
                             <div class="hot__box">
                                 <span class="hot-label" style="text-transform:none">YENİ</span>
                             </div>
@@ -32,7 +31,7 @@
                             <div class="action">
                                 <div class="actions_inner">
                                     <ul class="add_to_links">
-                                        <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a>
+                                        <li><a class="cart" href="{{route('addtocart',['id' => $rs->id])}}"><i class="bi bi-shopping-bag4"></i></a>
                                         </li>
                                         <li><a class="wishlist" href="wishlist.html"><i
                                                     class="bi bi-shopping-cart-full"></i></a></li>

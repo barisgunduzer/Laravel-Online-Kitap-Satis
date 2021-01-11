@@ -9,7 +9,7 @@
         </div>
     </form>
     <div class="close__wrap">
-        <span>close</span>
+        <span>Kapat</span>
     </div>
 </div>
 <!-- End Search Popup -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Message;
 use App\Models\Product;
 use App\Models\Setting;
@@ -22,36 +23,71 @@ class HomeController extends Controller
         return Category::where('parent_id','=',0)->with('children')->get();
     }
 
+    ##### İlişkilendirilmiş Kategori Etiketleri #####
+    public static function categorytags($category, $title){
+        if($category->parent_id == 0){
+            return $title;
+        }
+        $parent = Category::find($category->parent_id);
+        $title = $parent->title.' | '.$title;
+
+        return HomeController::categorytags($parent,$title);
+    }
+
     ##### Kitap Sayısı #####
     public static function numberofbooks($id){
         $books = Product::where('category_id','=',$id);
         return $books->count();
     }
 
-    ##### Ürün Detay #####
-    public function product($id, $slug){
+    ##### Sepete Ekle #####
+    public function addtocart($id){
         $data = Product::find($id);
         print_r($data);
         exit();
+    }
+
+    ##### Hızlı Göz Atma #####
+    public function quickview($id, $slug){
+        $book = Product::find($id);
+    }
+
+    ##### Ürün Detay #####
+    public function product($id, $slug){
+        $setting = Setting::first();
+        $book = Product::find($id);
+        $images = Image::where('product_id',$id)->get();
+        $categories = Category::all();
+        $category = Category::find($book->category_id);
+        $relatedbooks = Product::where('category_id',$book->category_id)->inRandomOrder()->get();
+        return view('home.product_detail',['book'=>$book,'images'=>$images,'setting'=>$setting,'categories'=>$categories,'category'=>$category,'relatedbooks'=>$relatedbooks]);
     }
 
     ##### Ürün Kategori #####
     public function category($id, $slug){
         $categories = Category::all();
         $category = Category::find($id);
-        $book = Product::where('category_id',$id)->get();
-        return view('home.category_products',['categories'=>$categories,'category'=>$category,'book'=>$book]);
+        $books = Product::where('category_id',$id)->get();
+        return view('home.category_products',['categories'=>$categories,'category'=>$category,'books'=>$books]);
     }
 
 
     ##### Anasayfa #####
     public function index(){
         $setting = Setting::first();
-        $slider = Product::select('id','title','author_name','image','price','slug')->limit(8)->get();
+        $p_categories = Category::where('parent_id','=',0)->get();
+        $allbooks = Product::all();
+        $newbooks = Product::select('id','title','author_name','image','price','slug')->limit(8)->orderByDesc('id')->get();
+        $bestseller = Product::select('id','title','author_name','image','price','slug')->limit(7)->inRandomOrder()->get();
+        $picked = Product::select('id','title','author_name','image','price','slug')->limit(8)->inRandomOrder()->get();
 
         $data = [
             'setting'=>$setting,
-            'slider'=>$slider,
+            'p_categories'=>$p_categories,
+            'allbooks'=>$allbooks,
+            'newbooks'=>$newbooks,
+            'bestseller'=>$bestseller,
+            'picked'=>$picked,
             'page'=>'home'
         ];
 

@@ -14,29 +14,12 @@
 
 @section('content')
 
-    <!-- Start Bradcaump area -->
-    <div class="ht__bradcaump__area bg-image--6">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="bradcaump__inner text-center">
-                        <h2 class="bradcaump-title" style="text-transform:none">Kategoriler</h2>
-                        <nav class="bradcaump-content">
-                            <a class="breadcrumb_item" href="{{route('home')}}">Anasayfa</a>
-                            <span class="brd-separetor">/</span>
-                            <span class="breadcrumb_item"><span class="templ">Kategoriler</span> </span>
-                            <span class="brd-separetor">/</span>
-                            <span class="breadcrumb_item active">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($category, $category->title)}}</span>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Bradcaump area -->
     <!-- Start Shop Page -->
     <div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
         <div class="container">
+            <div class="row">
+                <br><br><br>
+            </div>
             <div class="row">
                 <div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
                     <div class="shop__sidebar">
@@ -111,15 +94,12 @@
                     <div class="tab__container">
                         <div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
                             <div class="row">
-                                @foreach($book as $rs)
+                                @foreach($books as $rs)
                                 <!-- Start Single Product -->
                                 <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                     <div class="product__thumb">
                                         <a class="first__img" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="product image"></a>
                                         <a class="second__img animation1" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="product image"></a>
-                                        <div class="hot__box">
-                                            <span class="hot-label">EN ÇOK SATANLAR</span>
-                                        </div>
                                     </div>
                                     <div class="product__content content--center">
                                         <h4><a href="single-product.html">{{$rs->author_name}}</a></h4>
@@ -131,7 +111,7 @@
                                         <div class="action">
                                             <div class="actions_inner">
                                                 <ul class="add_to_links">
-                                                    <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
+                                                    <li><a class="cart" href="{{route('addtocart',['id' => $rs->id])}}"><i class="bi bi-shopping-bag4"></i></a></li>
                                                     <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
                                                     <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
                                                     <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
