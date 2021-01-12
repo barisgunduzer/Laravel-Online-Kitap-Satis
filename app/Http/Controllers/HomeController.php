@@ -29,7 +29,7 @@ class HomeController extends Controller
             return $title;
         }
         $parent = Category::find($category->parent_id);
-        $title = $parent->title.' | '.$title;
+        $title = $parent->title.' > '.$title;
 
         return HomeController::categorytags($parent,$title);
     }
@@ -52,6 +52,34 @@ class HomeController extends Controller
         $book = Product::find($id);
     }
 
+    ##### Ürün Arama #####
+    public function getproduct(Request $request){
+
+//        $data = Product::where('title',$request->input('search'))->first();
+//        return redirect()->route('product',['id'=>$data->id,'slug'=>$data->slug]);
+
+        $search= $request->input('search');
+
+        $count = Product::where('title','like','%'.$search.'%')->get()->count();
+        if($count == 1)
+        {
+            $data = Product::where('title','like','%'.$search.'%')->first();
+            return redirect()->route('product',['id'=>$data->id,'slug'=>$data->slug]);
+        }
+        else{
+            return redirect()->route('productlist',['search'=>$search]);
+        }
+
+    }
+
+    ##### Arama Sonucu Listeleme #####
+    public function productlist($search){
+        $books = Product::where('title','like','%'.$search.'%')->get();
+        $count = $books->count();
+        $categories = Category::all();
+        return view('home.search_products',['search'=>$search,'books'=>$books,'categories'=>$categories,'count'=>$count]);
+    }
+
     ##### Ürün Detay #####
     public function product($id, $slug){
         $setting = Setting::first();
@@ -70,7 +98,6 @@ class HomeController extends Controller
         $books = Product::where('category_id',$id)->get();
         return view('home.category_products',['categories'=>$categories,'category'=>$category,'books'=>$books]);
     }
-
 
     ##### Anasayfa #####
     public function index(){

@@ -1,4 +1,4 @@
-<!-- Start NEwsletter Area -->
+<!-- Start Newsletter Area -->
 <section class="wn__newsletter__area bg-image--2">
     <div class="container">
         <div class="row">
@@ -19,4 +19,4 @@
         </div>
     </div>
 </section>
-<!-- End NEwsletter Area -->
+<!-- End Newsletter Area -->

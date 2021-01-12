@@ -8,14 +8,33 @@
 
 @section('content')
 
-    <!-- End Bradcaump area -->
     <!-- Start main Content -->
     <div class="maincontent bg--white pt--80 pb--55">
         <div class="container">
             <div class="row">
-                <br>
-                <br>
-                <br>
+                <!-- Start Bradcaump area -->
+                <div class="row">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <br>
+                                    <div class="bradcaump__inner text-left">
+                                        <nav class="bradcaump-content">
+                                            <a href="{{route('home')}}">Anasayfa</a>
+                                            <span> > </span>
+                                            <a href="#">Kategori</a>
+                                            <span> > </span>
+                                            <span>{{ \App\Http\Controllers\HomeController::categorytags($category, $category->title) }}</span>
+                                            <span> > </span>
+                                            <a href="#">{{$book->title}}</a>
+                                        </nav>
+                                    </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Bradcaump area -->
             </div>
             <div class="row">
                 <div class="col-lg-9 col-12">
@@ -290,21 +309,6 @@
         </div>
     </div>
     <!-- End main Content -->
-    <!-- Start Search Popup -->
-    <div class="box-search-content search_active block-bg close__top">
-        <form id="search_mini_form--2" class="minisearch" action="#">
-            <div class="field__search">
-                <input type="text" placeholder="Search entire store here...">
-                <div class="action">
-                    <a href="#"><i class="zmdi zmdi-search"></i></a>
-                </div>
-            </div>
-        </form>
-        <div class="close__wrap">
-            <span>close</span>
-        </div>
-    </div>
-
 @endsection
 
 

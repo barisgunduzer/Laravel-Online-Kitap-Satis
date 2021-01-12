@@ -15,7 +15,6 @@
 
 @section('content')
 
-    @include('home._search_popup')
     @include('home._slider')
     @include('home._newbooks_section')
     @include('home._allbooks_section')

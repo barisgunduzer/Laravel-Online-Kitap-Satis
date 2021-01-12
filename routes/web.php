@@ -46,16 +46,22 @@ Route::post('/gonder', [HomeController::class, 'sendmessage'])->name('sendmessag
 Route::get('/sss', [HomeController::class, 'faq'])->name('faq');
 
 #Quick View
-Route::get('hizlibakis/{id}/{slug}', [HomeController::class, 'quickview'])->name('quickview');
+Route::get('/hizlibakis/{id}/{slug}', [HomeController::class, 'quickview'])->name('quickview');
 
 #Product Detail
-Route::get('kitap/{id}/{slug}', [HomeController::class, 'product'])->name('product');
+Route::get('/kitap/{id}/{slug}', [HomeController::class, 'product'])->name('product');
 
 #Category Product List
-Route::get('kategori/{id}/{slug}', [HomeController::class, 'category'])->name('category');
+Route::get('/kategori/{id}/{slug}', [HomeController::class, 'category'])->name('category');
 
 #Add to Cart
-Route::get('sepeteekle/{id}', [HomeController::class, 'addtocart'])->name('addtocart');
+Route::get('/sepeteekle/{id}', [HomeController::class, 'addtocart'])->name('addtocart');
+
+#Get Product
+Route::post('/getproduct', [HomeController::class, 'getproduct'])->name('getproduct');
+
+#Product List
+Route::post('/productlist/{search}', [HomeController::class, 'productlist'])->name('productlist');
 
 #Admin
 Route::middleware('auth')->prefix('admin')->group(function(){
@@ -63,46 +69,46 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
 
     #Category
-    Route::get('category', [CategoryController::class, 'index'])->name('admin_category');
-    Route::get('category/add', [CategoryController::class, 'add'])->name('admin_category_add');
-    Route::post('category/create', [CategoryController::class, 'create'])->name('admin_category_create');
-    Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('admin_category_edit');
-    Route::post('category/update/{id}', [CategoryController::class, 'update'])->name('admin_category_update');
-    Route::get('category/delete/{id}', [CategoryController::class, 'destroy'])->name('admin_category_delete');
-    Route::get('category/show', [CategoryController::class, 'show'])->name('admin_category_show');
+    Route::get('/category', [CategoryController::class, 'index'])->name('admin_category');
+    Route::get('/category/add', [CategoryController::class, 'add'])->name('admin_category_add');
+    Route::post('/category/create', [CategoryController::class, 'create'])->name('admin_category_create');
+    Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('admin_category_edit');
+    Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('admin_category_update');
+    Route::get('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('admin_category_delete');
+    Route::get('/category/show', [CategoryController::class, 'show'])->name('admin_category_show');
 
     #Product
     Route::prefix('product')->group(function(){
         Route::get('/', [ProductController::class, 'index'])->name('admin_products');
-        Route::get('create', [ProductController::class, 'create'])->name('admin_product_add');
-        Route::post('store', [ProductController::class, 'store'])->name('admin_product_store');
-        Route::get('edit/{id}', [ProductController::class, 'edit'])->name('admin_product_edit');
-        Route::post('update/{id}', [ProductController::class, 'update'])->name('admin_product_update');
-        Route::get('delete/{id}', [ProductController::class, 'destroy'])->name('admin_product_delete');
-        Route::get('show', [ProductController::class, 'show'])->name('admin_product_show');
+        Route::get('/create', [ProductController::class, 'create'])->name('admin_product_add');
+        Route::post('/store', [ProductController::class, 'store'])->name('admin_product_store');
+        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('admin_product_edit');
+        Route::post('/update/{id}', [ProductController::class, 'update'])->name('admin_product_update');
+        Route::get('/delete/{id}', [ProductController::class, 'destroy'])->name('admin_product_delete');
+        Route::get('/show', [ProductController::class, 'show'])->name('admin_product_show');
     });
 
 
     #Product Image Gallery
     Route::prefix('image')->group(function(){
-        Route::get('create/{product_id}', [ImageController::class, 'create'])->name('admin_image_add');
-        Route::post('store/{product_id}', [ImageController::class, 'store'])->name('admin_image_store');
-        Route::get('delete/{product_id}/{id}', [ImageController::class, 'destroy'])->name('admin_image_delete');
-        Route::get('show', [ImageController::class, 'show'])->name('admin_image_show');
+        Route::get('/create/{product_id}', [ImageController::class, 'create'])->name('admin_image_add');
+        Route::post('/store/{product_id}', [ImageController::class, 'store'])->name('admin_image_store');
+        Route::get('/delete/{product_id}/{id}', [ImageController::class, 'destroy'])->name('admin_image_delete');
+        Route::get('/show', [ImageController::class, 'show'])->name('admin_image_show');
     });
 
     #Message
     Route::prefix('messages')->group(function(){
         Route::get('/', [MessageController::class, 'index'])->name('admin_message');
-        Route::get('edit/{id}', [MessageController::class, 'edit'])->name('admin_message_edit');
-        Route::post('update/{id}', [MessageController::class, 'update'])->name('admin_message_update');
-        Route::get('delete/{id}', [MessageController::class, 'destroy'])->name('admin_message_delete');
-        Route::get('show', [MessageController::class, 'show'])->name('admin_message_show');
+        Route::get('/edit/{id}', [MessageController::class, 'edit'])->name('admin_message_edit');
+        Route::post('/update/{id}', [MessageController::class, 'update'])->name('admin_message_update');
+        Route::get('/delete/{id}', [MessageController::class, 'destroy'])->name('admin_message_delete');
+        Route::get('/show', [MessageController::class, 'show'])->name('admin_message_show');
     });
 
     #Setting
-    Route::get('setting', [SettingController::class, 'index'])->name('admin_setting');
-    Route::post('setting/update', [SettingController::class, 'update'])->name('admin_setting_update');
+    Route::get('/setting', [SettingController::class, 'index'])->name('admin_setting');
+    Route::post('/setting/update', [SettingController::class, 'update'])->name('admin_setting_update');
 });
 
 #User

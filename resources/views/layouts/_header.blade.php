@@ -149,8 +149,8 @@
                                                         <span><a href="{{route('logout')}}"><i class="far fa-times-circle"></i> Çıkış</a></span>
                                                     @endauth
                                                     @guest
-                                                            <span><a href="/login"><span class="color--theme">Giriş Yap</span></a></span>
-                                                            <span><a href="/register">Üye Ol</a></span>
+                                                        <span><a href="/login"><span class="color--theme">Giriş Yap</span></a></span>
+                                                        <span><a href="/register">Üye Ol</a></span>
                                                     @endguest
                                                 </div>
                                             </div>
@@ -208,5 +208,6 @@
             </div>
             <!-- Mobile Menu -->
         </div>
+        @include('home._search_popup')
     </header>
     <!-- //Header -->

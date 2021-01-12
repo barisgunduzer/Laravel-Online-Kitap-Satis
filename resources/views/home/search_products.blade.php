@@ -1,39 +1,33 @@
 @extends('layouts.home')
 
-@section('title',$category->title.' Kategorisindeki Tüm Kitaplar | Kitap Sokağı')
-
-@section('description',$category->description)
-
-@section('keywords',$category->keywords)
-
-@section('author',$category->author)
+@section('title', $search->title.' Arama Sonuçları | Kitap Sokağı')
 
 @section('content')
 
     <!-- Start Shop Page -->
     <div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
         <div class="container">
-            <!-- Start Bradcaump area -->
             <div class="row">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <br>
+                <!-- Start Bradcaump area -->
+                <div class="row">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <br>
                                 <div class="bradcaump__inner text-left">
                                     <nav class="bradcaump-content">
                                         <a href="{{route('home')}}">Anasayfa</a>
                                         <span> > </span>
-                                        <a href="#">Kategori</a>
-                                        <span> > </span>
-                                        <span>{{ \App\Http\Controllers\HomeController::categorytags($category, $category->title) }}</span>
+                                        <a href="#">Arama Sonucu</a>
                                     </nav>
                                 </div>
-                            <br>
+                                <br>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- End Bradcaump area -->
             </div>
-            <!-- End Bradcaump area -->
             <div class="row">
                 <div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
                     <div class="shop__sidebar">
@@ -41,11 +35,7 @@
                             <h3 class="wedget__title" style="text-transform:none">Kategoriler</h3>
                             <ul>
                                 @foreach($categories as $cat)
-                                    @if($cat->id == $category->id)
-                                        <li><a href="{{route('category',[$cat->id, $cat->slug])}}"><b>{{$cat->title}}</b><span>{{\App\Http\Controllers\HomeController::numberofbooks($cat->id)}}</span></a></li>
-                                    @else
                                         <li><a href="{{route('category',[$cat->id, $cat->slug])}}">{{$cat->title}}<span>{{\App\Http\Controllers\HomeController::numberofbooks($cat->id)}}</span></a></li>
-                                    @endif
                                 @endforeach
                             </ul>
                         </aside>
@@ -72,11 +62,8 @@
                         <aside class="wedget__categories poroduct--tag">
                             <h3 class="wedget__title" style="text-transform:none">Kategoriler</h3>
                             <ul>
-                                <li><a href="">{{$category->title}}</a></li>
                                 @foreach($categories as $cat)
-                                    @if($cat->id != $category->id)
-                                        <li><a href="">{{$cat->title}}</a></li>
-                                    @endif
+                                    <li><a href="">{{$cat->title}}</a></li>
                                 @endforeach
                             </ul>
                         </aside>
@@ -90,7 +77,7 @@
                                     <a class="nav-item nav-link active" data-toggle="tab" href="#nav-grid" role="tab"><i class="fa fa-th"></i></a>
                                     <a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a>
                                 </div>
-                                <p>{{\App\Http\Controllers\HomeController::numberofbooks($category->id)}} sonuç arasından 1-12 tanesi gösteriliyor</p>
+                                <p>{{$count}} sonuç arasından 1-12 tanesi gösteriliyor</p>
                                 <div class="orderby__wrapper">
                                     <span>Sırala</span>
                                     <select class="shot__byselect">

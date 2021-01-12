@@ -2,12 +2,6 @@
 
 @section('title','Category List')
 
-@section('description','Dünya klasiklerinden, çocuk edebiyatına; kırtasiye malzemelerinden hobi ve elektroniğe varan yüzlerce kategoriden binlerce ürün sizleri bekliyor!')
-
-@section('keywords','kitap, roman, türk edebiyatı, klasik batı edebiyatı, şiir, fantezi, bilim kurgu')
-
-@section('author','barisgunduzer')
-
 @section('css')<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/vendor/datatables/css/dataTables.bootstrap4.css">
 <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/vendor/datatables/css/buttons.bootstrap4.css">
 <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/vendor/datatables/css/select.bootstrap4.css">
