@@ -7,7 +7,7 @@
                     <aside class="widget category_widget">
                         <h3 class="widget-title" style="text-transform:none">Kullanıcı Paneli</h3>
                         <ul>
-                            <li><a href="{{route('myprofile')}}">Profilim</a></li>
+                            <li><a href="{{route('myprofile')}}">Hesabım</a></li>
                             <li><a href="#">Siparişlerim</a></li>
                             <li><a href="#">Değerlendirmelerim</a></li>
                             <li><a href="#">Sepetim</a></li>

@@ -112,7 +112,7 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 });
 
 #User
-Route::middleware('auth')->prefix('profilim')->namespace('profilim')->group(function(){
+Route::middleware('auth')->prefix('hesabim')->namespace('hesabim')->group(function(){
     Route::get('/', [UserController::class, 'index'])->name('myprofile');
 });
 
