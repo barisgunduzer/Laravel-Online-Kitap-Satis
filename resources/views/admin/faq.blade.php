@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Review List')
+@section('title','Frequently Asked Question List')
 
 @section('css')<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/vendor/datatables/css/dataTables.bootstrap4.css">
 <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/vendor/datatables/css/buttons.bootstrap4.css">
@@ -21,12 +21,13 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">Review List</h2>
+                        <h2 class="pageheader-title">FAQ List</h2>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Reviews</li>
+                                    <!-- <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Categories</a></li> -->
+                                    <li class="breadcrumb-item active" aria-current="page">FAQs</li>
                                 </ol>
                             </nav>
                         </div>
@@ -36,12 +37,13 @@
             <!-- ============================================================== -->
             <!-- end pageheader -->
             <!-- ============================================================== -->
+            @include('home.message')
+            <a href="{{route('admin_faq_add')}}" class="btn btn-success">Add FAQ</a>
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table  -->
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    @include('home.message')
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -49,28 +51,24 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Book</th>
-                                        <th>Subject</th>
-                                        <th>Review</th>
-                                        <th>Rate</th>
+                                        <th>Question</th>
+                                        <th>Answer</th>
+                                        <th>Position</th>
                                         <th>Status</th>
-                                        <th>Date</th>
-                                        <th>Show</th>
+                                        <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($reviews as $rs)
+                                    @foreach($datalist as $rs)
                                     <tr>
                                         <td>{{$rs->id}}</td>
-                                        <td><a href="{{route('product',['id' => $rs->product->id,'slug' => $rs->product->slug])}}" target="_blank"></a>{{$rs->product->title}}</td>
-                                        <td>{{$rs->subject}}</td>
-                                        <td>{{$rs->review}}</td>
-                                        <td>{{$rs->rate}}</td>
+                                        <td>{{$rs->question}}</td>
+                                        <td>{!! $rs->answer !!}</td>
+                                        <td>{{$rs->position}}</td>
                                         <td>{{$rs->status}}</td>
-                                        <td>{{$rs->created_at->format('d.m.Y H:i:s ')}}</td>
-                                        <td><a href="{{route('admin_review_show',['id' => $rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700') "><i class="fas fa-edit"></i></a></td>
-                                        <td><a href="{{route('admin_review_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a></td>
+                                        <td><a href="{{route('admin_faq_edit',['id' => $rs->id])}}"><i class="fas fa-edit"></i></a></td>
+                                        <td><a href="{{route('admin_faq_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a></td>
                                     </tr>
                                     @endforeach
                                     </tbody>

@@ -22,7 +22,7 @@
                     @csrf
                     <div class="form-group">
                         Sent at: {{$review->created_at->format('d.m.Y H:i:s ')}} <br>
-                        From: {{$review->email}}<br>
+                        From: {{$review->user->name}}<br>
                     </div>
                     <table style="text-align:center" class="table table-striped table-bordered first">
                         <tr>
@@ -34,7 +34,7 @@
                             <td>{{$review->user->name}}</td>
                         </tr>
                         <tr>
-                            <th>Product</th>
+                            <th>Book</th>
                             <td>{{$review->product->title}}</td>
                         </tr>
                         <tr>

@@ -20,13 +20,16 @@
                         <a class="nav-link" href="{{route('admin_products')}}"><i class="fas fa-fw fa-book"></i>Books</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{route('admin_review')}}"><i class="fas fa-comment-alt"></i>Customer Reviews</a>
+                        <a class="nav-link" href="{{route('admin_review')}}"><i class="fas fa-comment"></i>Customer Reviews</a>
                     </li>
                     <li class="nav-divider">
                         Website
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{route('admin_message')}}"><i class="fas fa-fw fa-paper-plane"></i>Contact Messages</a>
+                        <a class="nav-link" href="{{route('admin_message')}}"><i class="fas fa-envelope"></i>Contact Messages</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{route('admin_faq')}}"><i class=" fas fa-question"></i>FAQs</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="{{route('admin_setting')}}"><i class="fas fa-fw fa-cog"></i>Settings</a>
