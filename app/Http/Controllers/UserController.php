@@ -30,9 +30,9 @@ class UserController extends Controller
 
     ##### Yorumu Sil ######
     public function destroyreview($id){
-        $review =Review::find($id);
+        $review = Review::find($id);
         $review->delete();
-        return redirect()->back()->with('success','Yorum başarıyla silindi');
+        return redirect()->back()->with('success','Yorum başarıyla silindi.');
     }
 
     /**

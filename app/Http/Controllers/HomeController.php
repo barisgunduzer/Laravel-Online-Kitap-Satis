@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Faq;
 use App\Models\Image;
 use App\Models\Message;
 use App\Models\Product;
@@ -164,8 +165,9 @@ class HomeController extends Controller
 
     ##### Sıkça Sorulan Sorular #####
     public function faq(){
-
-        return view('home.faq');
+        $setting = Setting::first();
+        $faqs = Faq::all()->sortBy('position');
+        return view('home.faq',['setting'=>$setting,'faqs'=>$faqs]);
     }
 
     ##### Giriş Sayfası #####

@@ -182,6 +182,7 @@
                                                 </div>
                                             </div>
                                             <div class="review-content">
+                                                <b>{{$rs->subject}}</b>
                                                 <p>{{$rs->review}}</p>
                                                 <p><small>{{$rs->user->name}} | {{$rs->created_at->format('d.m.Y | H:i:s ')}}</small></p>
                                             </div>

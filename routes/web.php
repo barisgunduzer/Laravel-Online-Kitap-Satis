@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProductController;
@@ -54,6 +55,9 @@ Route::get('/kitap/{id}/{slug}', [HomeController::class, 'product'])->name('prod
 
 #Add Product Review
 Route::post('/kitap/yorumekle/{id}', [ReviewController::class, 'addreview'])->name('addreview');
+
+#Delete Product Review
+Route::get('/kitap/yorumsil/{id}', [UserController::class, 'destroyreview'])->name('destroyreview');
 
 #Category Product List
 Route::get('/kategori/{id}/{slug}', [HomeController::class, 'category'])->name('category');
@@ -115,6 +119,17 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::post('/update/{id}', [ReviewController::class, 'update'])->name('admin_review_update');
         Route::get('/delete/{id}', [ReviewController::class, 'destroy'])->name('admin_review_delete');
         Route::get('/show/{id}', [ReviewController::class, 'show'])->name('admin_review_show');
+    });
+
+    #Faq
+    Route::prefix('faq')->group(function(){
+        Route::get('/', [FaqController::class, 'index'])->name('admin_faq');
+        Route::get('/create', [FaqController::class, 'create'])->name('admin_faq_add');
+        Route::post('/store', [FaqController::class, 'store'])->name('admin_faq_store');
+        Route::get('/edit/{id}', [FaqController::class, 'edit'])->name('admin_faq_edit');
+        Route::post('/update/{id}', [FaqController::class, 'update'])->name('admin_faq_update');
+        Route::get('/delete/{id}', [FaqController::class, 'destroy'])->name('admin_faq_delete');
+        Route::get('/show', [FaqController::class, 'show'])->name('admin_faq_show');
     });
 
     #Setting

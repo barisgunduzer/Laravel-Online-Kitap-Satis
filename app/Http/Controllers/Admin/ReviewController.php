@@ -107,6 +107,6 @@ class ReviewController extends Controller
     {
         $review = Review::find($id);
         $review->delete();
-        return redirect()->back()->with('success','Review was deleted successfully.');
+        return redirect()->back()->with('success','Yorum başarıyla silindi.');
     }
 }
