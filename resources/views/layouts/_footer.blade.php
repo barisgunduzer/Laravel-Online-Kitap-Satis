@@ -64,3 +64,4 @@
 <script src="{{asset('assets')}}/js/bootstrap.min.js"></script>
 <script src="{{asset('assets')}}/js/plugins.js"></script>
 <script src="{{asset('assets')}}/js/active.js"></script>
+@livewireScripts()

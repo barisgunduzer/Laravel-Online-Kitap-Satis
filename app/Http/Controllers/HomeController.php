@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Image;
 use App\Models\Message;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,16 @@ class HomeController extends Controller
     public static function numberofbooks($id){
         $books = Product::where('category_id','=',$id);
         return $books->count();
+    }
+
+    ##### Yapılan Yorum Sayısı #####
+    public static function countreview($id){
+        return Review::where('product_id',$id)->count();
+    }
+
+    ##### Ortalama Yorum Puanı #####
+    public static function avrgreview($id){
+        return Review::where('product_id',$id)->average('rate');
     }
 
     ##### Sepete Ekle #####
@@ -77,7 +88,7 @@ class HomeController extends Controller
         $books = Product::where('title','like','%'.$search.'%')->get();
         $count = $books->count();
         $categories = Category::all();
-        return view('home.search_products',['search'=>$search,'books'=>$books,'categories'=>$categories,'count'=>$count]);
+        return view('home.search_products',['search'=>$search,'books'=>$books,'count'=>$count, 'categories'=>$categories]);
     }
 
     ##### Ürün Detay #####
@@ -85,10 +96,11 @@ class HomeController extends Controller
         $setting = Setting::first();
         $book = Product::find($id);
         $images = Image::where('product_id',$id)->get();
+        $reviews = Review::where('product_id',$id)->get();
         $categories = Category::all();
         $category = Category::find($book->category_id);
         $relatedbooks = Product::where('category_id',$book->category_id)->inRandomOrder()->get();
-        return view('home.product_detail',['book'=>$book,'images'=>$images,'setting'=>$setting,'categories'=>$categories,'category'=>$category,'relatedbooks'=>$relatedbooks]);
+        return view('home.product_detail',['book'=>$book,'images'=>$images,'reviews'=>$reviews,'setting'=>$setting,'categories'=>$categories,'category'=>$category,'relatedbooks'=>$relatedbooks]);
     }
 
     ##### Ürün Kategori #####

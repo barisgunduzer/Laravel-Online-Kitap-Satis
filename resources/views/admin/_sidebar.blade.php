@@ -19,6 +19,9 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="{{route('admin_products')}}"><i class="fas fa-fw fa-book"></i>Books</a>
                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{{route('admin_review')}}"><i class="fas fa-comment-alt"></i>Customer Reviews</a>
+                    </li>
                     <li class="nav-divider">
                         Website
                     </li>

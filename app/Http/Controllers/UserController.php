@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -17,6 +19,20 @@ class UserController extends Controller
     {
         $setting = Setting::first();
         return view('home.user_profile',['setting'=>$setting]);
+    }
+
+    ##### Yapılan Yorumlar #####
+    public function myreviews(){
+        $setting = Setting::first();
+        $reviews = Review::where('user_id','=',Auth::user()->id)->get();
+        return view('home.user_reviews', ['reviews'=>$reviews, 'setting'=>$setting]);
+    }
+
+    ##### Yorumu Sil ######
+    public function destroyreview($id){
+        $review =Review::find($id);
+        $review->delete();
+        return redirect()->back()->with('success','Yorum başarıyla silindi');
     }
 
     /**

@@ -1,3 +1,8 @@
+@php
+    $avgrev = \App\Http\Controllers\HomeController::avrgreview($book->id);
+    $countreview = \App\Http\Controllers\HomeController::countreview($book->id);
+@endphp
+
 @extends('layouts.home')
 
 @section('title',$book->title.', '.$book->author_name.' - Fiyatı & Satın Al | '.$setting->company)
@@ -5,6 +10,50 @@
 @section('description',$book->description)
 
 @section('keywords',$book->keywords)
+
+@section('css')
+    <style>
+        .txt-center {
+            text-align: center;
+        }
+        .hide {
+            display: none;
+        }
+
+        .clear {
+            float: none;
+            clear: both;
+        }
+
+        .rating > label {
+            float: right;
+            display: inline;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            width: 1.1em;
+            cursor: pointer;
+            color: #aaaaaa;
+        }
+
+        .rating > label:hover,
+        .rating > label:hover ~ label,
+        .rating > input.radio-btn:checked ~ label {
+            color: #e59285;
+        }
+
+        .rating > label:hover:before,
+        .rating > label:hover ~ label:before,
+        .rating > input.radio-btn:checked ~ label:before,
+        .rating > input.radio-btn:checked ~ label:before {
+            font-family: "Font Awesome 5 Free";
+            content: "\f005";
+            position: absolute;
+            left: 0;
+            color: #e59285;
+        }
+    </style>
+@endsection
 
 @section('content')
 
@@ -18,17 +67,17 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <br>
-                                    <div class="bradcaump__inner text-left">
-                                        <nav class="bradcaump-content">
-                                            <a href="{{route('home')}}">Anasayfa</a>
-                                            <span> > </span>
-                                            <a href="#">Kategori</a>
-                                            <span> > </span>
-                                            <span>{{ \App\Http\Controllers\HomeController::categorytags($category, $category->title) }}</span>
-                                            <span> > </span>
-                                            <a href="#">{{$book->title}}</a>
-                                        </nav>
-                                    </div>
+                                <div class="bradcaump__inner text-left">
+                                    <nav class="bradcaump-content">
+                                        <a href="{{route('home')}}">Anasayfa</a>
+                                        <span> > </span>
+                                        <a href="#">Kategori</a>
+                                        <span> > </span>
+                                        <span>{{ \App\Http\Controllers\HomeController::categorytags($category, $category->title) }}</span>
+                                        <span> > </span>
+                                        <a href="#">{{$book->title}}</a>
+                                    </nav>
+                                </div>
                                 <br>
                             </div>
                         </div>
@@ -54,17 +103,29 @@
                                 <div class="product__info__main">
                                     <h1>{{$book->title}}</h1>
                                     <div class="product-reviews-summary d-flex">
-                                        <ul class="rating-summary d-flex">
-                                            <li><i class="zmdi zmdi-star-outline"></i></li>
-                                            <li><i class="zmdi zmdi-star-outline"></i></li>
-                                            <li><i class="zmdi zmdi-star-outline"></i></li>
-                                            <li class="off"><i class="zmdi zmdi-star-outline"></i></li>
-                                            <li class="off"><i class="zmdi zmdi-star-outline"></i></li>
+                                        <ul class="rating d-flex">
+                                            @if($avgrev == 0)
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                            @else
+                                                <li @if($avgrev >= 1) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                <li @if($avgrev >= 2) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                <li @if($avgrev >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                <li @if($avgrev >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                <li @if($avgrev >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                            @endif
                                         </ul>
+                                        <p> @if($avgrev == 0) 0/5 - {{$countreview}} Kişi @else {{(int)$avgrev}}/5 - {{$countreview}} Kişi @endif</p>
                                     </div>
-                                    <div class="price-box">
-                                        <span>{{$book->price}}₺</span>
+                                    <div class="s-price-box">
+                                        <br>
+                                        <span class="new-price">{{$book->price}}₺</span>
+                                        <span class="old-price">{{$book->price*1.2}}₺</span>
                                     </div>
+
                                     <div class="product__overview">
                                         <p><b>Yazar :</b> {{$book->author_name}}</p>
                                         <p><b>Yayınevi :</b> {{$book->publisher_name}}</p>
@@ -94,7 +155,7 @@
                     <div class="product__info__detailed">
                         <div class="pro_details_nav nav justify-content-start" role="tablist">
                             <a class="nav-item nav-link active" data-toggle="tab" href="#nav-details" role="tab" style="text-transform:none">Kitap Detayı</a>
-                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-review" role="tab" style="text-transform:none">Yorumlar</a>
+                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-review" role="tab" style="text-transform:none">Yorumlar ({{$countreview}})</a>
                         </div>
                         <div class="tab__container">
                             <!-- Start Single Tab Content -->
@@ -106,103 +167,71 @@
                             <!-- End Single Tab Content -->
                             <!-- Start Single Tab Content -->
                             <div class="pro__tab_label tab-pane fade" id="nav-review" role="tabpanel">
-                                <div class="review__attribute">
-                                    <h1>Müşteri Yorumları</h1>
-                                    <h2>kullanıcı adı buraya</h2>
-                                    <div class="review__ratings__type d-flex">
-                                        <div class="review-ratings">
-                                            <div class="rating-summary d-flex">
-                                                <span>Quality</span>
-                                                <ul class="rating d-flex">
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
+                                @foreach($reviews as $rs)
+                                    <div class="review__attribute">
+                                        <div class="review__ratings__type d-flex">
+                                            <div class="review-ratings">
+                                                <div class="rating d-flex">
+                                                    <ul class="rating d-flex">
+                                                        <li @if($avgrev >= 1) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if($avgrev >= 2) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if($avgrev >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if($avgrev >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if($avgrev >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>{{$rs->review}}</p>
+                                                <p><small>{{$rs->user->name}} | {{$rs->created_at->format('d.m.Y | H:i:s ')}}</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br class="divider">
+                                @endforeach
+                                <div class="review-fieldset">
+                                    <div class="review_form_field">
+                                        @auth
+                                        @include('home.message')
+                                        <form action="{{route('addreview',$book->id)}}" method="post" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="input__box">
+                                                <span>Ürünü Değerlendir :</span>
+                                            </div>
+                                            <div class="rating" style="float:left">
+                                                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                                                <label for="star5"><i class="fas fa-star"></i></label>
+                                                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                                                <label for="star4"><i class="fas fa-star"></i></label>
+                                                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                                                <label for="star3"><i class="fas fa-star"></i></label>
+                                                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                                                <label for="star2"><i class="fas fa-star"></i></label>
+                                                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                                                <label for="star1"><i class="fas fa-star"></i></label>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <small>(1:Kötü, 2:İdare Eder, 3:Fena Değil, 4:İyi, 5:Çok İyi)</small>
+                                            <div class="input__box">
+                                                <br>
+                                                <span>Başlık:</span>
+                                                <input id="summery_field" type="text" name="subject">
+                                                @error('subject') <span class="text-danger">{{$message}}</span>@enderror
                                             </div>
 
-                                            <div class="rating-summary d-flex">
-                                                <span>Price</span>
-                                                <ul class="rating d-flex">
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
+                                            <div class="input__box">
+                                                <span>Yorumunuz:</span>
+                                                <textarea rows="3" name="review"></textarea>
+                                                @error('review') <span class="text-danger">{{$message}}</span>@enderror
                                             </div>
-                                            <div class="rating-summary d-flex">
-                                                <span>value</span>
-                                                <ul class="rating d-flex">
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
+
+                                            <div class="review-form-actions">
+                                                <button type="submit">Yorum Yap</button>
                                             </div>
-                                        </div>
-                                        <div class="review-content">
-                                            <p>Hastech</p>
-                                            <p>Review by Hastech</p>
-                                            <p>Posted on 11/6/2018</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="review-fieldset">
-                                    <h2>You're reviewing:</h2>
-                                    <h3>Chaz Kangeroo Hoodie</h3>
-                                    <div class="review-field-ratings">
-                                        <div class="product-review-table">
-                                            <div class="review-field-rating d-flex">
-                                                <span>Quality</span>
-                                                <ul class="rating d-flex">
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="review-field-rating d-flex">
-                                                <span>Price</span>
-                                                <ul class="rating d-flex">
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="review-field-rating d-flex">
-                                                <span>Value</span>
-                                                <ul class="rating d-flex">
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                    <li class="off"><i class="zmdi zmdi-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="review_form_field">
-                                        <div class="input__box">
-                                            <span>Nickname</span>
-                                            <input id="nickname_field" type="text" name="nickname">
-                                        </div>
-                                        <div class="input__box">
-                                            <span>Summary</span>
-                                            <input id="summery_field" type="text" name="summery">
-                                        </div>
-                                        <div class="input__box">
-                                            <span>Review</span>
-                                            <textarea name="review"></textarea>
-                                        </div>
-                                        <div class="review-form-actions">
-                                            <button>Submit Review</button>
-                                        </div>
+                                            @else
+                                                <p>Yorum yapmak için lütfen <a href="{{route('login')}}"><span class="color--theme">Giriş</span></a> yapın</p>
+                                            @endauth
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -217,42 +246,41 @@
                             <div class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
                             @foreach($relatedbooks as $rs)
                                 @if($rs->id != $book->id)
-                                <!-- Start Single Product -->
-                                    <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-                                        <div class="product__thumb">
-                                            <a class="first__img" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="product image"></a>
-                                            <a class="second__img animation1" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="product image"></a>
-                                        </div>
-                                        <div class="product__content content--center content--center">
-                                            <h4><a href="single-product.html">{{$rs->author_name}}</a></h4>
-                                            <h4><a href="single-product.html">{{$rs->title}}</a></h4>
-                                            <ul class="prize d-flex">
-                                                <li>{{$rs->price}}₺</li>
-                                                <li class="old_prize">{{$rs->price+5}}₺</li>
-                                            </ul>
-                                            <div class="action">
-                                                <div class="actions_inner">
-                                                    <ul class="add_to_links">
-                                                        <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-                                                        <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                                                        <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                                                        <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
+                                    <!-- Start Single Product -->
+                                        <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="product__thumb">
+                                                <a class="first__img" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="product image"></a>
+                                                <a class="second__img animation1" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="product image"></a>
+                                            </div>
+                                            <div class="product__content content--center content--center">
+                                                <h4><a href="single-product.html">{{$rs->author_name}}</a></h4>
+                                                <h4><a href="single-product.html">{{$rs->title}}</a></h4>
+                                                <ul class="prize d-flex">
+                                                    <li>{{$rs->price}}₺</li>
+                                                    <li class="old_prize">{{$rs->price*1.2}}₺</li>
+                                                </ul>
+                                                <div class="action">
+                                                    <div class="actions_inner">
+                                                        <ul class="add_to_links">
+                                                            <li><a class="cart" href="cart.html"><i class="fas fa-cart-plus"></i></a></li>
+                                                            <li><a class="wishlist" href="wishlist.html"><i class="fas fa-heart"></i></a></li>
+                                                            <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="fas fa-search"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product__hover--content">
+                                                    <ul class="rating d-flex">
+                                                        <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 1) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 2) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="product__hover--content">
-                                                <ul class="rating d-flex">
-                                                    <li class="on"><i class="fa fa-star-o"></i></li>
-                                                    <li class="on"><i class="fa fa-star-o"></i></li>
-                                                    <li class="on"><i class="fa fa-star-o"></i></li>
-                                                    <li><i class="fa fa-star-o"></i></li>
-                                                    <li><i class="fa fa-star-o"></i></li>
-                                                </ul>
-                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- End Single Product -->
-                                @endif
+                                        <!-- End Single Product -->
+                                    @endif
                                 @endforeach
                             </div>
                         </div>
@@ -310,7 +338,4 @@
     </div>
     <!-- End main Content -->
 @endsection
-
-
-
 

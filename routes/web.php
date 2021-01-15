@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -51,6 +52,9 @@ Route::get('/hizlibakis/{id}/{slug}', [HomeController::class, 'quickview'])->nam
 #Product Detail
 Route::get('/kitap/{id}/{slug}', [HomeController::class, 'product'])->name('product');
 
+#Add Product Review
+Route::post('/kitap/yorumekle/{id}', [ReviewController::class, 'addreview'])->name('addreview');
+
 #Category Product List
 Route::get('/kategori/{id}/{slug}', [HomeController::class, 'category'])->name('category');
 
@@ -88,7 +92,6 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::get('/show', [ProductController::class, 'show'])->name('admin_product_show');
     });
 
-
     #Product Image Gallery
     Route::prefix('image')->group(function(){
         Route::get('/create/{product_id}', [ImageController::class, 'create'])->name('admin_image_add');
@@ -106,6 +109,14 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         Route::get('/show', [MessageController::class, 'show'])->name('admin_message_show');
     });
 
+    #Review
+    Route::prefix('review')->group(function() {
+        Route::get('/', [ReviewController::class, 'index'])->name('admin_review');
+        Route::post('/update/{id}', [ReviewController::class, 'update'])->name('admin_review_update');
+        Route::get('/delete/{id}', [ReviewController::class, 'destroy'])->name('admin_review_delete');
+        Route::get('/show/{id}', [ReviewController::class, 'show'])->name('admin_review_show');
+    });
+
     #Setting
     Route::get('/setting', [SettingController::class, 'index'])->name('admin_setting');
     Route::post('/setting/update', [SettingController::class, 'update'])->name('admin_setting_update');
@@ -113,7 +124,9 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 
 #User
 Route::middleware('auth')->prefix('hesabim')->namespace('hesabim')->group(function(){
-    Route::get('/', [UserController::class, 'index'])->name('myprofile');
+    Route::get('/kullanicibilgilerim', [UserController::class, 'index'])->name('myprofile');
+    Route::get('/yorumlarim', [UserController::class, 'myreviews'])->name('myreviews');
+    Route::get('/yorumlarim/sil/{id}', [UserController::class, 'destroyreview'])->name('user_review_delete');
 });
 
 Route::middleware('auth')->prefix('user')->namespace('user')->group(function(){

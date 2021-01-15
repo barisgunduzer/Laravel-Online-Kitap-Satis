@@ -29,6 +29,7 @@
                 <div class="col-lg-8 col-12">
                     <div class="contact-form-wrap">
                         <h2 class="contact__title" style="text-transform:none">İletişim Formu</h2>
+                        @include('home.message')
                         <form id="contact-form" action="{{route('sendmessage')}}" method="post">
                             @csrf
                             <div class="single-contact-form space-between">

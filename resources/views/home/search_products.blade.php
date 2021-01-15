@@ -107,7 +107,7 @@
                                         <h4><a href="single-product.html">{{$rs->title}}</a></h4>
                                         <ul class="prize d-flex">
                                             <li>{{$rs->price}}₺</li>
-                                            <li class="old_prize">{{$rs->price+5}}₺</li>
+                                            <li class="old_prize">{{$rs->price*1.2}}₺</li>
                                         </ul>
                                         <div class="action">
                                             <div class="actions_inner">
@@ -120,13 +120,15 @@
                                             </div>
                                         </div>
                                         <div class="product__hover--content">
-                                            <ul class="rating d-flex">
-                                                <li class="on"><i class="fa fa-star-o"></i></li>
-                                                <li class="on"><i class="fa fa-star-o"></i></li>
-                                                <li class="on"><i class="fa fa-star-o"></i></li>
-                                                <li><i class="fa fa-star-o"></i></li>
-                                                <li><i class="fa fa-star-o"></i></li>
-                                            </ul>
+                                            <div class="rating d-flex">
+                                                <ul class="rating d-flex">
+                                                    <li @if($rs->rate >= 1) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                    <li @if($rs->rate >= 2) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                    <li @if($rs->rate >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                    <li @if($rs->rate >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                    <li @if($rs->rate >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

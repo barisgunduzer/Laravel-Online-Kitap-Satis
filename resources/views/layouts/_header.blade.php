@@ -145,6 +145,7 @@
                                                     @auth
                                                         <span><a href="{{route('myprofile')}}"><i class="far fa-user-circle"></i> Hesabım</a></span>
                                                         <span><a href="#"><i class="far fa-hand-point-right"></i> Siparişlerim</a></span>
+                                                        <span><a href="{{route('myreviews')}}"><i class="far fa-comment"></i> Yorumlarım</a></span>
                                                         <span><a href="#"><i class="far fa-heart"></i> Favorilerim</a></span>
                                                         <span><a href="{{route('logout')}}"><i class="far fa-times-circle"></i> Çıkış</a></span>
                                                     @endauth

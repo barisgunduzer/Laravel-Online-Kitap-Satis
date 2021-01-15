@@ -9,7 +9,6 @@
 @section('author',$setting->author)
 
 @section('content')
-
     <!-- Start Bradcaump area -->
     <div class="ht__bradcaump__area bg-image--6">
         <div class="container">
@@ -28,8 +27,20 @@
         </div>
     </div>
     <!-- End Bradcaump area -->
-    @include('home.usermenu')
-
+    <div class="page-blog-details pt--80 pb--45 bg--white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
+                @include('home.usermenu')
+                </div>
+                <div class="col-lg-9 col-12">
+                    <div class="blog-details content">
+                        @include('profile.show')
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 
