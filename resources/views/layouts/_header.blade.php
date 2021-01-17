@@ -1,11 +1,11 @@
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
-
 <!--Start Main Wrapper -->
 <div class="wrapper" id="wrapper">
     <!-- Header -->
     <header id="wn__header" class="header__area header__absolute sticky__header">
+        @include('home.message')
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-6 col-lg-2">
@@ -56,77 +56,45 @@
                     <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
                         <li class="shop_search"><a class="search__active" href="#"></a></li>
                         <li class="wishlist"><a href="#"></a></li>
-                        <li class="shopcart"><a class="cartbox_active" href="#"><span class="product_qun">3</span></a>
+                        <li class="shopcart"><a class="cartbox_active" href="#"><span class="product_qun">{{\App\Http\Controllers\ShopcartController::countmyshopcart()}}</span></a>
                             <!-- Start Shopping Cart -->
                             <div class="block-minicart minicart__active">
                                 <div class="minicart-content-wrapper">
                                     <div class="micart__close">
-                                        <span>close</span>
                                     </div>
                                     <div class="items-total d-flex justify-content-between">
-                                        <span>3 items</span>
-                                        <span>Cart Subtotal</span>
+                                        <span>Sepetim ({{\App\Http\Controllers\ShopcartController::countmyshopcart()}}) Ürün</span>
+                                        <span>Toplam</span>
                                     </div>
                                     <div class="total_amount text-right">
-                                        <span>$66.00</span>
+                                        <span>{{\App\Http\Controllers\ShopcartController::subtotal()}}₺</span>
                                     </div>
                                     <div class="mini_action checkout">
-                                        <a class="checkout__btn" href="cart.html">Go to Checkout</a>
+                                        <a class="checkout__btn" href="{{route('myshopcart')}}" style="text-transform:none">Siparişi Tamamla</a>
                                     </div>
                                     <div class="single__items">
                                         <div class="miniproduct">
+                                            @foreach(\App\Http\Controllers\ShopcartController::myshopcart() as $rs)
                                             <div class="item01 d-flex">
                                                 <div class="thumb">
-                                                    <a href="product-details.html"><img src="{{asset('assets')}}/images/product/sm-img/1.jpg" alt="product images"></a>
+                                                    <a href="{{route('product',['id'=>$rs->product->id,'slug'=>$rs->product->slug])}}"><img src="{{Storage::url($rs->product->image)}}" alt="product images"></a>
                                                 </div>
                                                 <div class="content">
-                                                    <h6><a href="product-details.html">Voyage Yoga Bag</a></h6>
-                                                    <span class="prize">$30.00</span>
+                                                    <h6><a href="{{route('product',['id'=>$rs->product->id,'slug'=>$rs->product->slug])}}">{{$rs->product->title}}</a></h6>
+                                                    <span class="prize">{{$rs->product->price}}₺</span>
                                                     <div class="product_prize d-flex justify-content-between">
-                                                        <span class="qun">Qty: 01</span>
+                                                        <span class="qun">Adet: <b>{{$rs->quantity}}</b></span>
                                                         <ul class="d-flex justify-content-end">
-                                                            <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
-                                                            <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
+                                                            <li><a href="{{route('myshopcart_delete',['id'=>$rs->id])}}"><i class="zmdi zmdi-delete"></i></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="item01 d-flex mt--20">
-                                                <div class="thumb">
-                                                    <a href="product-details.html"><img src="{{asset('assets')}}/images/product/sm-img/3.jpg" alt="product images"></a>
-                                                </div>
-                                                <div class="content">
-                                                    <h6><a href="product-details.html">Impulse Duffle</a></h6>
-                                                    <span class="prize">$40.00</span>
-                                                    <div class="product_prize d-flex justify-content-between">
-                                                        <span class="qun">Qty: 03</span>
-                                                        <ul class="d-flex justify-content-end">
-                                                            <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
-                                                            <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item01 d-flex mt--20">
-                                                <div class="thumb">
-                                                    <a href="product-details.html"><img src="{{asset('assets')}}/images/product/sm-img/2.jpg" alt="product images"></a>
-                                                </div>
-                                                <div class="content">
-                                                    <h6><a href="product-details.html">Compete Track Tote</a></h6>
-                                                    <span class="prize">$40.00</span>
-                                                    <div class="product_prize d-flex justify-content-between">
-                                                        <span class="qun">Qty: 03</span>
-                                                        <ul class="d-flex justify-content-end">
-                                                            <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
-                                                            <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="mini_action cart">
-                                        <a class="cart__btn" href="cart.html">View and edit cart</a>
+                                        <a class="cart__btn" href="{{route('myshopcart')}}" style="text-transform:none;background-color:#e59285"><span class="color--white">Sepete Git</span></a>
                                     </div>
                                 </div>
                             </div>

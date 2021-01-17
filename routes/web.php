@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShopcartController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -62,14 +63,11 @@ Route::get('/kitap/yorumsil/{id}', [UserController::class, 'destroyreview'])->na
 #Category Product List
 Route::get('/kategori/{id}/{slug}', [HomeController::class, 'category'])->name('category');
 
-#Add to Cart
-Route::get('/sepeteekle/{id}', [HomeController::class, 'addtocart'])->name('addtocart');
-
-#Get Product
+#Search Product
 Route::post('/getproduct', [HomeController::class, 'getproduct'])->name('getproduct');
 
-#Product List
-Route::post('/productlist/{search}', [HomeController::class, 'productlist'])->name('productlist');
+#Search Product List
+Route::get('/aramasonucu/{search}', [HomeController::class, 'productlist'])->name('productlist');
 
 #Admin
 Route::middleware('auth')->prefix('admin')->group(function(){
@@ -139,14 +137,17 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 
 #User
 Route::middleware('auth')->prefix('hesabim')->namespace('hesabim')->group(function(){
-    Route::get('/kullanicibilgilerim', [UserController::class, 'index'])->name('myprofile');
+    Route::get('/', [UserController::class, 'index'])->name('myprofile');
     Route::get('/yorumlarim', [UserController::class, 'myreviews'])->name('myreviews');
     Route::get('/yorumlarim/sil/{id}', [UserController::class, 'destroyreview'])->name('user_review_delete');
 });
 
-Route::middleware('auth')->prefix('user')->namespace('user')->group(function(){
-    Route::get('/profile', [UserController::class, 'index'])->name('userprofile');
-});
+#ShopCart
+Route::get('/sepetim', [ShopcartController::class, 'index'])->name('myshopcart');
+Route::post('/sepeteekle/{id}', [ShopcartController::class, 'store'])->name('myshopcart_add');
+Route::get('/sepeteekle/{id}', [ShopcartController::class, 'store'])->name('myshopcart_add_single');
+Route::post('/sepetiguncelle/{id}', [ShopcartController::class, 'update'])->name('myshopcart_edit');
+Route::get('/sepettencikar/{id}', [ShopcartController::class, 'destroy'])->name('myshopcart_delete');
 
 #Admin Login
 Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');

@@ -66,7 +66,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <br>
+                                <br><br>
                                 <div class="bradcaump__inner text-left">
                                     <nav class="bradcaump-content">
                                         <a href="{{route('home')}}">Anasayfa</a>
@@ -133,16 +133,19 @@
                                         <p><i class=" fa fa-box-open"></i> Standart Teslimat’ta 100 TL üzeri kargo bedava!</p>
 
                                     </div>
-                                    <div class="box-tocart d-flex">
-                                        <input id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty" type="number">
-                                        <div class="addtocart__actions">
-                                            <button class="tocart" type="submit" title="Add to Cart">Sepete Ekle</button>
+                                    <form action="{{route('myshopcart_add',['id'=>$book->id])}}" method="post">
+                                        @csrf
+                                        <div class="box-tocart d-flex">
+                                            <input id="quantity" class="input-text qty" name="quantity" min="1" value="1" max="{{$book->quantity_in_stock}}" title="Qty" type="number">
+                                            <div class="addtocart__actions">
+                                                <button class="tocart" type="submit" title="Add to Cart">Sepete Ekle</button>
+                                            </div>
+                                            <div class="product-addto-links clearfix">
+                                                <a class="wishlist" href="#"></a>
+                                                <a class="compare" href="#"></a>
+                                            </div>
                                         </div>
-                                        <div class="product-addto-links clearfix">
-                                            <a class="wishlist" href="#"></a>
-                                            <a class="compare" href="#"></a>
-                                        </div>
-                                    </div>
+                                    </form>
                                     <div class="product_meta">
 											<span class="posted_in">Kategoriler:
 												{{ \App\Http\Controllers\HomeController::categorytags($category, $category->title) }}
@@ -193,7 +196,6 @@
                                 <div class="review-fieldset">
                                     <div class="review_form_field">
                                         @auth
-                                        @include('home.message')
                                         <form action="{{route('addreview',$book->id)}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             <div class="input__box">
@@ -254,8 +256,8 @@
                                                 <a class="second__img animation1" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="product image"></a>
                                             </div>
                                             <div class="product__content content--center content--center">
-                                                <h4><a href="single-product.html">{{$rs->author_name}}</a></h4>
-                                                <h4><a href="single-product.html">{{$rs->title}}</a></h4>
+                                                <h4><a href="#">{{$rs->author_name}}</a></h4>
+                                                <h4><a href="#">{{$rs->title}}</a></h4>
                                                 <ul class="prize d-flex">
                                                     <li>{{$rs->price}}₺</li>
                                                     <li class="old_prize">{{$rs->price*1.2}}₺</li>
@@ -263,8 +265,8 @@
                                                 <div class="action">
                                                     <div class="actions_inner">
                                                         <ul class="add_to_links">
-                                                            <li><a class="cart" href="cart.html"><i class="fas fa-cart-plus"></i></a></li>
-                                                            <li><a class="wishlist" href="wishlist.html"><i class="fas fa-heart"></i></a></li>
+                                                            <li><a class="cart" href="{{route('myshopcart_add_single',['id'=> $rs->id])}}"><i class="fas fa-cart-plus"></i></a></li>
+                                                            <li><a class="wishlist" href="#"><i class="fas fa-heart"></i></a></li>
                                                             <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="fas fa-search"></i></a></li>
                                                         </ul>
                                                     </div>

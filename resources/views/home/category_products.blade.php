@@ -116,8 +116,8 @@
                                         <a class="second__img animation1" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="product image"></a>
                                     </div>
                                     <div class="product__content content--center">
-                                        <h4><a href="single-product.html">{{$rs->author_name}}</a></h4>
-                                        <h4><a href="single-product.html">{{$rs->title}}</a></h4>
+                                        <h4><a href="#">{{$rs->author_name}}</a></h4>
+                                        <h4><a href="#">{{$rs->title}}</a></h4>
                                         <ul class="prize d-flex">
                                             <li>{{$rs->price}}₺</li>
                                             <li class="old_prize">{{$rs->price*1.2}}₺</li>
@@ -125,7 +125,7 @@
                                         <div class="action">
                                             <div class="actions_inner">
                                                 <ul class="add_to_links">
-                                                    <li><a class="cart" href="{{route('addtocart',['id' => $rs->id])}}"><i class="fas fa-cart-plus"></i></a></li>
+                                                    <li><a class="cart" href="{{route('myshopcart_add_single',['id'=> $rs->id])}}"><i class="fas fa-cart-plus"></i></a></li>
                                                     <li><a class="wishlist" href="wishlist.html"><i class="fas fa-heart"></i></a></li>
                                                     <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="fas fa-search"></i></a></li>
                                                 </ul>

@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', $search->title.' Arama Sonuçları | Kitap Sokağı')
+@section('title', '"'.$search.'"'.' Arama Sonuçları | Kitap Sokağı')
 
 @section('content')
 
@@ -63,7 +63,7 @@
                             <h3 class="wedget__title" style="text-transform:none">Kategoriler</h3>
                             <ul>
                                 @foreach($categories as $cat)
-                                    <li><a href="">{{$cat->title}}</a></li>
+                                    <li><a href="{{route('category',[$cat->id, $cat->slug])}}">{{$cat->title}}</a></li>
                                 @endforeach
                             </ul>
                         </aside>
@@ -103,8 +103,8 @@
                                         <a class="second__img animation1" href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="product image"></a>
                                     </div>
                                     <div class="product__content content--center">
-                                        <h4><a href="single-product.html">{{$rs->author_name}}</a></h4>
-                                        <h4><a href="single-product.html">{{$rs->title}}</a></h4>
+                                        <h4><a href="#">{{$rs->author_name}}</a></h4>
+                                        <h4><a href="#">{{$rs->title}}</a></h4>
                                         <ul class="prize d-flex">
                                             <li>{{$rs->price}}₺</li>
                                             <li class="old_prize">{{$rs->price*1.2}}₺</li>
@@ -112,21 +112,20 @@
                                         <div class="action">
                                             <div class="actions_inner">
                                                 <ul class="add_to_links">
-                                                    <li><a class="cart" href="{{route('addtocart',['id' => $rs->id])}}"><i class="bi bi-shopping-bag4"></i></a></li>
-                                                    <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                                                    <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                                                    <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
+                                                    <li><a class="cart" href="{{route('myshopcart_add_single',['id'=> $rs->id])}}"><i class="fas fa-cart-plus"></i></a></li>
+                                                    <li><a class="wishlist" href="wishlist.html"><i class="fas fa-heart"></i></a></li>
+                                                    <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="fas fa-search"></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="product__hover--content">
                                             <div class="rating d-flex">
                                                 <ul class="rating d-flex">
-                                                    <li @if($rs->rate >= 1) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
-                                                    <li @if($rs->rate >= 2) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
-                                                    <li @if($rs->rate >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
-                                                    <li @if($rs->rate >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
-                                                    <li @if($rs->rate >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                    <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 1) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                    <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 2) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                    <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                    <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                    <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
                                                 </ul>
                                             </div>
                                         </div>

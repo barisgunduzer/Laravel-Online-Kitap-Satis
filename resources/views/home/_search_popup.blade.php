@@ -4,7 +4,7 @@
         @csrf
         <div class="field__search">
             @livewire('search')
-            <a type="submit"><i class="zmdi zmdi-search"></i></a>
+            <a type="submit"><i class="fas-fa search"></i></a>
         </div>
     </form>
     @livewireScripts
