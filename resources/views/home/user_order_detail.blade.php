@@ -90,11 +90,19 @@
                                                 @endphp
                                                 <ul class="cart__total__list">
                                                     <li>Ara Tutar (KDV Dahil)</li>
+                                                    @if($subtotal < 100)
                                                     <li>Kargo Bedeli</li>
+                                                    @else
+                                                    <li>Ücretsiz Kargo</li>
+                                                    @endif
                                                 </ul>
                                                 <ul class="cart__total__tk">
                                                     <li>{{$subtotal}}₺</li>
+                                                    @if($subtotal < 100)
                                                     <li>{{$cost}}₺</li>
+                                                    @else
+                                                    <li><s>{{$cost}}</s>₺</li>
+                                                    @endif
                                                 </ul>
                                             </div>
                                             <div class="cart__total__amount">

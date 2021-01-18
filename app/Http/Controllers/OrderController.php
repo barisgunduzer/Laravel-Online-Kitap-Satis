@@ -16,11 +16,17 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public static function countitems($id){
+        $ordered_items = Orderitem::where('order_id',$id)->get();
+        return $ordered_items->count();
+    }
+
     public function index()
     {
         $setting = Setting::first();
         $orders = Order::where('user_id',Auth::id())->get();
-        return view('home.user_order',['orders' => $orders,'setting' => $setting]);
+        return view('home.user_orders',['orders' => $orders,'setting' => $setting]);
     }
 
     /**
@@ -88,7 +94,7 @@ class OrderController extends Controller
     {
         $setting = Setting::first();
         $datalist = Orderitem::where('user_id',Auth::id())->where('order_id',$id)->get();
-        return view('home.order_detail',['datalist' => $datalist, 'setting' => $setting]);
+        return view('home.user_order_detail',['datalist' => $datalist, 'setting' => $setting]);
     }
 
     /**

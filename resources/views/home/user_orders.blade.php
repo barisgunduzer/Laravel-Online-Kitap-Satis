@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title','Yaptığım Yorumlar')
+@section('title','Siparişlerim')
 
 @section('description',$setting->description)
 

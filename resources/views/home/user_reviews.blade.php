@@ -35,7 +35,6 @@
                 </div>
                 <div class="col-lg-9 col-12">
                     <div class="blog-details content">
-                        @include('home.message')
                         <table style="text-align:center" class="table table-striped table-bordered first">
                             <thead>
                             <tr>
