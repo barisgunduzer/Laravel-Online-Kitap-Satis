@@ -10,7 +10,7 @@
                             <h2><span>Sevdiğiniz </span></h2>
                             <h2><span>kitaplar için</span> doğru </h2>
                             <h2>adrestesiniz...</h2>
-                            <a class="shopbtn" href="#" style="text-transform:none">Şimdi alışveriş yap</a>
+                            <a class="shopbtn" href="#allbooks" style="text-transform:none">Şimdi alışveriş yap</a>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                             <h2>Tüm Kitaplarda Geçerli</h2>
                             <h2><span>%20 İndirim Fırsatı</span></h2>
                             <h2>Sizleri bekliyor</h2>
-                            <a class="shopbtn" href="#" style="text-transform:none">Şimdi alışveriş yap</a>
+                            <a class="shopbtn" href="#allbooks" style="text-transform:none">Şimdi alışveriş yap</a>
                         </div>
                     </div>
                 </div>

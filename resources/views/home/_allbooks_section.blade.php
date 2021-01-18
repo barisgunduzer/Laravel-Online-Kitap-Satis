@@ -1,5 +1,5 @@
 <!-- Start All Books Area -->
-<section class="wn__bestseller__area bg--white pt--80  pb--30">
+<section id="allbooks" class="wn__bestseller__area bg--white pt--80  pb--30">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -54,6 +54,8 @@
                                                 <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
                                                 <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
                                                 <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                <li></li>
+                                                <li><span class="color--theme">({{\App\Http\Controllers\HomeController::countreview($rs->id)}})</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -100,6 +102,8 @@
                                                         <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
                                                         <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
                                                         <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li></li>
+                                                        <li><span class="color--theme">({{\App\Http\Controllers\HomeController::countreview($rs->id)}})</span></li>
                                                     </ul>
                                                 </div>
                                             </div>

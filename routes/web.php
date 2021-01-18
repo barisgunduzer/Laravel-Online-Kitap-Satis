@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShopcartController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -136,11 +137,10 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 });
 
 #User
-Route::middleware('auth')->prefix('hesabim')->namespace('hesabim')->group(function(){
-    Route::get('/', [UserController::class, 'index'])->name('myprofile');
-    Route::get('/yorumlarim', [UserController::class, 'myreviews'])->name('myreviews');
-    Route::get('/yorumlarim/sil/{id}', [UserController::class, 'destroyreview'])->name('user_review_delete');
-});
+Route::get('/hesabim', [UserController::class, 'index'])->name('myprofile');
+Route::get('/yorumlarim', [UserController::class, 'myreviews'])->name('myreviews');
+Route::get('/yorumlarim/sil/{id}', [UserController::class, 'destroyreview'])->name('user_review_delete');
+
 
 #ShopCart
 Route::get('/sepetim', [ShopcartController::class, 'index'])->name('myshopcart');
@@ -148,6 +148,15 @@ Route::post('/sepeteekle/{id}', [ShopcartController::class, 'store'])->name('mys
 Route::get('/sepeteekle/{id}', [ShopcartController::class, 'store'])->name('myshopcart_add_single');
 Route::post('/sepetiguncelle/{id}', [ShopcartController::class, 'update'])->name('myshopcart_edit');
 Route::get('/sepettencikar/{id}', [ShopcartController::class, 'destroy'])->name('myshopcart_delete');
+
+#Order
+Route::post('/odeme', [OrderController::class, 'create'])->name('myorders_add');
+Route::post('/siparisver', [OrderController::class, 'store'])->name('myorders_store');
+Route::get('/siparislerim', [OrderController::class, 'index'])->name('myorders');
+Route::get('/siparislerim/duzenle/{id}', [OrderController::class, 'edit'])->name('myorders_edit');
+Route::post('/siparislerim/guncelle/{id}', [OrderController::class, 'update'])->name('myorders_update');
+Route::get('/siparislerim/iptal/{id}', [OrderController::class, 'destroy'])->name('myorders_delete');
+Route::get('/siparislerim/detay/{id}', [OrderController::class, 'show'])->name('myorders_show');
 
 #Admin Login
 Route::get('/admin/login',[HomeController::class, 'login'])->name('admin_login');

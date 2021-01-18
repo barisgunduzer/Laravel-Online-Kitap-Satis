@@ -64,4 +64,22 @@
 <script src="{{asset('assets')}}/js/bootstrap.min.js"></script>
 <script src="{{asset('assets')}}/js/plugins.js"></script>
 <script src="{{asset('assets')}}/js/active.js"></script>
+<script>
+        $(document).ready(function(){
+            $(document).on("click",".checkout__btn",function(){
+                var form = $(this).closest("form");
+                //console.log(form);
+                form.submit();
+            });
+        });
+</script>
+<script>
+    $(document).ready(function(){
+        $(document).on("click",".order__btn",function(){
+            var form = $(this).closest("form");
+            //console.log(form);
+            form.submit();
+        });
+    });
+</script>
 @livewireScripts()

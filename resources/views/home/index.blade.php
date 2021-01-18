@@ -13,6 +13,14 @@
 
 @section('author',$setting->author)
 
+@section('css')
+<style>
+    html {
+        scroll-behavior: smooth;
+        }
+</style>
+@endsection
+
 @section('content')
 
     @include('home._slider')

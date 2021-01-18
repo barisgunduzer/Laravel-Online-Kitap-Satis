@@ -129,6 +129,11 @@
                                     <div class="product__overview">
                                         <p><b>Yazar :</b> {{$book->author_name}}</p>
                                         <p><b>Yayınevi :</b> {{$book->publisher_name}}</p>
+                                        @if($book->quantity_in_stock)
+                                        <p><span class="color--theme">Stokta Var</span></p>
+                                        @else
+                                            <p><span class="color--black"><s>Stokta Kalmadı</s></span></p>
+                                        @endif
                                         <p><b>Tüm Ürün Formatları</b> (1 Adet)</p>
                                         <p><i class=" fa fa-box-open"></i> Standart Teslimat’ta 100 TL üzeri kargo bedava!</p>
 
@@ -176,11 +181,11 @@
                                             <div class="review-ratings">
                                                 <div class="rating d-flex">
                                                     <ul class="rating d-flex">
-                                                        <li @if($avgrev >= 1) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
-                                                        <li @if($avgrev >= 2) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
-                                                        <li @if($avgrev >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
-                                                        <li @if($avgrev >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
-                                                        <li @if($avgrev >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if($rs->rate >= 1) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if($rs->rate >= 2) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if($rs->rate >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if($rs->rate >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li @if($rs->rate >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -202,15 +207,15 @@
                                                 <span>Ürünü Değerlendir :</span>
                                             </div>
                                             <div class="rating" style="float:left">
-                                                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                                                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" required/>
                                                 <label for="star5"><i class="fas fa-star"></i></label>
-                                                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                                                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" required/>
                                                 <label for="star4"><i class="fas fa-star"></i></label>
-                                                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                                                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" required/>
                                                 <label for="star3"><i class="fas fa-star"></i></label>
-                                                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                                                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" required/>
                                                 <label for="star2"><i class="fas fa-star"></i></label>
-                                                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                                                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" required/>
                                                 <label for="star1"><i class="fas fa-star"></i></label>
                                                 <div class="clear"></div>
                                             </div>
@@ -218,13 +223,13 @@
                                             <div class="input__box">
                                                 <br>
                                                 <span>Başlık:</span>
-                                                <input id="summery_field" type="text" name="subject">
+                                                <input id="summery_field" type="text" name="subject" required>
                                                 @error('subject') <span class="text-danger">{{$message}}</span>@enderror
                                             </div>
 
                                             <div class="input__box">
                                                 <span>Yorumunuz:</span>
-                                                <textarea rows="3" name="review"></textarea>
+                                                <textarea rows="3" name="review" required></textarea>
                                                 @error('review') <span class="text-danger">{{$message}}</span>@enderror
                                             </div>
 
@@ -278,6 +283,8 @@
                                                         <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 3) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
                                                         <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 4) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
                                                         <li @if(App\Http\Controllers\HomeController::avrgreview($rs->id) >= 5) class="on" @else class="off" @endif><i class="fas fa-star"></i></li>
+                                                        <li></li>
+                                                        <li><span class="color--theme">({{\App\Http\Controllers\HomeController::countreview($rs->id)}})</span></li>
                                                     </ul>
                                                 </div>
                                             </div>

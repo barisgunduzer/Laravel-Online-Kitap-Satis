@@ -134,7 +134,7 @@ class ShopcartController extends Controller
         $cart_item = Shopcart::find($id);
         $cart_item->quantity = $request->input('quantity');
         $cart_item->save();
-        return redirect()->back()->with('success','Sepet güncellendi.');
+        return redirect()->back()->with('success','Sepet başarıyla güncellendi.');
     }
 
     /**

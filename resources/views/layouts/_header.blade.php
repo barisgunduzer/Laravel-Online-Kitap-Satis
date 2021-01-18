@@ -27,7 +27,7 @@
                                     <ul class="item item03">
                                         <li class="title" style="text-transform:none">En Çok Satanlar</li>
                                         <li><a href="">Mystery</a></li>
-                                        <li><a href="l">Religion & Inspiration</a></li>
+                                        <li><a href="">Religion & Inspiration</a></li>
                                         <li><a href="">Romance</a></li>
                                         <li><a href="">Fiction/Fantasy</a></li>
                                         <li><a href="">Sleeveless</a></li>
@@ -69,9 +69,13 @@
                                     <div class="total_amount text-right">
                                         <span>{{\App\Http\Controllers\ShopcartController::subtotal()}}₺</span>
                                     </div>
+                                    <form action="{{route('myorders_add')}}" method="post">
+                                    @csrf
                                     <div class="mini_action checkout">
-                                        <a class="checkout__btn" href="{{route('myshopcart')}}" style="text-transform:none">Siparişi Tamamla</a>
+                                        <input type="hidden" name="total" value="{{\App\Http\Controllers\ShopcartController::subtotal()}}">
+                                        <a class="checkout__btn" href="javascript:void(0)" style="text-transform:none">Siparişi Tamamla</a>
                                     </div>
+                                    </form>
                                     <div class="single__items">
                                         <div class="miniproduct">
                                             @foreach(\App\Http\Controllers\ShopcartController::myshopcart() as $rs)
@@ -99,7 +103,6 @@
                                 </div>
                             </div>
                             <!-- End Shopping Cart -->
-                        </li>
                         <li class="setting__bar__icon"><a class="setting__active" href="#"></a>
                             <div class="searchbar__content setting__block">
                                 <div class="content-inner">
@@ -112,7 +115,7 @@
                                                 <div class="setting__menu">
                                                     @auth
                                                         <span><a href="{{route('myprofile')}}"><i class="far fa-user-circle"></i> Hesabım</a></span>
-                                                        <span><a href="#"><i class="far fa-hand-point-right"></i> Siparişlerim</a></span>
+                                                        <span><a href="{{route('myorders')}}"><i class="far fa-hand-point-right"></i> Siparişlerim</a></span>
                                                         <span><a href="{{route('myreviews')}}"><i class="far fa-comment"></i> Yorumlarım</a></span>
                                                         <span><a href="#"><i class="far fa-heart"></i> Favorilerim</a></span>
                                                         <span><a href="{{route('logout')}}"><i class="far fa-times-circle"></i> Çıkış</a></span>
@@ -180,3 +183,4 @@
         @include('home._search_popup')
     </header>
     <!-- //Header -->
+</div>
