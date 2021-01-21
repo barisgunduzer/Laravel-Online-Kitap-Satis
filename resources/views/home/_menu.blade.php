@@ -4,6 +4,6 @@
 
 <ul class="item item03">
     @foreach($parentCategories as $rs)
-    <li><a href="shop-grid.html">{{$rs->title}}</a></li>
+    <li><a href="{{route('category',['id'=>$rs->id,'slug'=>$rs->slug])}}">{{$rs->title}}</a></li>
     @endforeach
 </ul>

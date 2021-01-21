@@ -1,5 +1,5 @@
 <!-- Best Sale Area -->
-<section class="best-seel-area pt--80 pb--60">
+<section id="pickedforyou" class="best-seel-area pt--80 pb--60">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

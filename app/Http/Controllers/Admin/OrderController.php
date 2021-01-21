@@ -10,8 +10,21 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
 
+    public static function orderlist()
+    {
+        $orders = Order::all();
+        return $orders;
+    }
 
-
+    public static function revenue()
+    {
+        $revenue = 0;
+        $orders = Order::all();
+        foreach($orders as $rs){
+            $revenue += $rs->total;
+        }
+        return $revenue;
+    }
 
     /**
      * Display a listing of the resource.

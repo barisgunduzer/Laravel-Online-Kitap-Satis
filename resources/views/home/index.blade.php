@@ -15,7 +15,7 @@
 
 @section('css')
 <style>
-    html {
+    html{
         scroll-behavior: smooth;
         }
 </style>

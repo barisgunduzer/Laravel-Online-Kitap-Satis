@@ -3,6 +3,12 @@
     <aside class="widget category_widget">
         <h3 class="widget-title" style="text-transform:none">Kullanıcı Paneli</h3>
         <ul>
+            @php
+                $userRoles = Auth::user()->roles->pluck('name');
+            @endphp
+            @if($userRoles->contains('admin'))
+                <li><a href="{{route('admin_home')}}">@if(Request::route()->getName() == 'admin_home')<span class="color--theme">Admin Paneli</span> @else Admin @endif</a></li>
+            @endif
             <li><a href="{{route('myprofile')}}">@if(Request::route()->getName() == 'myprofile')<span class="color--theme">Hesabım</span> @else Hesabım @endif</a></li>
             <li><a href="{{route('myshopcart')}}">@if(Request::route()->getName() == 'myshopcart')<span class="color--theme">Sepetim</span> @else Sepetim @endif</a></li>
             <li><a href="{{route('myorders')}}">@if(Request::route()->getName() == 'myorders')<span class="color--theme">Siparişlerim</span> @else Siparişlerim @endif</a></li>

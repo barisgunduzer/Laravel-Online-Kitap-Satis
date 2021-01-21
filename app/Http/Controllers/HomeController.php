@@ -38,18 +38,18 @@ class HomeController extends Controller
 
     ##### Kitap Sayısı #####
     public static function numberofbooks($id){
-        $books = Product::where('category_id','=',$id);
+        $books = Product::where('category_id','=',$id)->where('status','True');;
         return $books->count();
     }
 
     ##### Yapılan Yorum Sayısı #####
     public static function countreview($id){
-        return Review::where('product_id',$id)->count();
+        return Review::where('product_id',$id)->where('status','True')->count();
     }
 
     ##### Ortalama Yorum Puanı #####
     public static function avrgreview($id){
-        return Review::where('product_id',$id)->average('rate');
+        return Review::where('product_id',$id)->where('status','True')->average('rate');
     }
 
     ##### Sepete Ekle #####
@@ -88,7 +88,7 @@ class HomeController extends Controller
     public function productlist($search){
         $books = Product::where('title','like','%'.$search.'%')->get();
         $count = $books->count();
-        $categories = Category::all();
+        $categories = Category::all()->where('status','True');
         return view('home.search_products',['search'=>$search,'books'=>$books,'count'=>$count, 'categories'=>$categories]);
     }
 
@@ -97,29 +97,29 @@ class HomeController extends Controller
         $setting = Setting::first();
         $book = Product::find($id);
         $images = Image::where('product_id',$id)->get();
-        $reviews = Review::where('product_id',$id)->get();
-        $categories = Category::all();
+        $reviews = Review::where('product_id',$id)->where('status','True')->get();
+        $categories = Category::all()->where('status','True');
         $category = Category::find($book->category_id);
-        $relatedbooks = Product::where('category_id',$book->category_id)->inRandomOrder()->get();
+        $relatedbooks = Product::where('category_id',$book->category_id)->where('status','True')->inRandomOrder()->get();
         return view('home.product_detail',['book'=>$book,'images'=>$images,'reviews'=>$reviews,'setting'=>$setting,'categories'=>$categories,'category'=>$category,'relatedbooks'=>$relatedbooks]);
     }
 
     ##### Ürün Kategori #####
-    public function category($id, $slug){
-        $categories = Category::all();
+    public function category($id){
+        $categories = Category::all()->where('status','True');
         $category = Category::find($id);
-        $books = Product::where('category_id',$id)->get();
+        $books = Product::where('category_id',$id)->where('status','True')->get();
         return view('home.category_products',['categories'=>$categories,'category'=>$category,'books'=>$books]);
     }
 
     ##### Anasayfa #####
     public function index(){
         $setting = Setting::first();
-        $p_categories = Category::where('parent_id','=',0)->get();
-        $allbooks = Product::all();
-        $newbooks = Product::select('id','title','author_name','image','price','slug')->limit(8)->orderByDesc('id')->get();
-        $bestseller = Product::select('id','title','author_name','image','price','slug')->limit(7)->inRandomOrder()->get();
-        $picked = Product::select('id','title','author_name','image','price','slug')->limit(8)->inRandomOrder()->get();
+        $p_categories = Category::where('parent_id','=',0)->where('status','True')->get();
+        $allbooks = Product::all()->where('status','True');
+        $newbooks = Product::select('id','title','author_name','image','price','slug')->where('status','True')->limit(8)->orderByDesc('id')->get();
+        $bestseller = Product::select('id','title','author_name','image','price','slug')->where('status','True')->limit(7)->inRandomOrder()->get();
+        $picked = Product::select('id','title','author_name','image','price','slug')->where('status','True')->limit(8)->inRandomOrder()->get();
 
         $data = [
             'setting'=>$setting,
@@ -166,14 +166,14 @@ class HomeController extends Controller
     ##### Sıkça Sorulan Sorular #####
     public function faq(){
         $setting = Setting::first();
-        $faqs = Faq::all()->sortBy('position');
+        $faqs = Faq::all()->where('status','True')->sortBy('position');
         return view('home.faq',['setting'=>$setting,'faqs'=>$faqs]);
     }
 
     ##### Giriş Sayfası #####
     public function login(){
 
-        return view('home.login');
+        return view('admin.login');
     }
 
     ##### Giriş Denetçisi #####
@@ -184,7 +184,7 @@ class HomeController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->intended('/admin');
         }
 
         return back()->withErrors([

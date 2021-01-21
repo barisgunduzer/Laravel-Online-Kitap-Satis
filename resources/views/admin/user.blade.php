@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Product List')
+@section('title','Users List')
 
 @section('css')<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/vendor/datatables/css/dataTables.bootstrap4.css">
 <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/admin/vendor/datatables/css/buttons.bootstrap4.css">
@@ -21,12 +21,12 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">Product List</h2>
+                        <h2 class="pageheader-title">Users</h2>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{route('admin_home')}}" class="breadcrumb-link">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Products</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Users</li>
                                 </ol>
                             </nav>
                         </div>
@@ -37,7 +37,6 @@
             <!-- end pageheader -->
             <!-- ============================================================== -->
             @include('home.message')
-            <a href="{{route('admin_product_add')}}" class="btn btn-success">Add Product</a>
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table  -->
@@ -50,16 +49,12 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Category</th>
-                                        <th>Product Name</th>
-                                        <th>Author</th>
-                                        <th>Publisher</th>
-                                        <th>ISBN</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Image</th>
-                                        <th>Gallery</th>
-                                        <th>Status</th>
+                                        <th>Photo</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>Roles</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -69,23 +64,23 @@
                                     <tr>
                                         <td>{{$rs->id}}</td>
                                         <td>
-                                            {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category, $rs->category->title) }}
-                                        </td>
-                                        <td>{{$rs->title}}</td>
-                                        <td>{{$rs->author_name}}</td>
-                                        <td>{{$rs->publisher_name}}</td>
-                                        <td>{{$rs->ISBN}}</td>
-                                        <td>{{$rs->quantity_in_stock}}</td>
-                                        <td>{{$rs->price}}</td>
-                                        <td>
-                                            @if ($rs->image)
-                                                <img src="{{ Storage::url($rs->image)}}" height="30" alt=""/>
+                                            @if ($rs->profile_photo_path)
+                                                <img src="{{Storage::url($rs->profile_photo_path)}}" height="50" style="border-radius:10px" alt="">
                                             @endif
                                         </td>
-                                        <td><a href="{{route('admin_image_add',['product_id' => $rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700') "><i class="fas fa-images"></i></a></td>
-                                        <td>{{$rs->status}}</td>
-                                        <td><a href="{{route('admin_product_edit',['id' => $rs->id])}}"><i class="fas fa-edit"></i></a></td>
-                                        <td><a href="{{route('admin_product_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a></td>
+                                        <td>{{$rs->name}}</td>
+                                        <td>{{$rs->email}}</td>
+                                        <td>{{$rs->phone}}</td>
+                                        <td>{{$rs->address}}</td>
+                                        <td>@foreach($rs->roles as $row)
+                                                {{$row->name}},
+                                            @endforeach
+                                            <a href="{{route('admin_user_roles',['id' => $rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
+                                                <i class="fas fa-plus-circle"></i>
+                                            </a>
+                                        </td>
+                                        <td><a href="{{route('admin_user_edit',['id' => $rs->id])}}"><i class="fas fa-edit"></i></a></td>
+                                        <td><a href="{{route('admin_user_delete',['id' => $rs->id])}}" onclick="return confirm('Are you sure?')"><i class="fas fa-trash-alt"></i></a></td>
                                     </tr>
                                     @endforeach
                                     </tbody>

@@ -25,7 +25,7 @@
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin_home')}}" class="breadcrumb-link">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Messages</li>
                                 </ol>
                             </nav>
@@ -85,9 +85,9 @@
                 <!-- end basic table  -->
                 <!-- ============================================================== -->
             </div>
-        @endsection
+@endsection
 
-        @section('footerjs')
+@section('footerjs')
             <!-- Optional JavaScript -->
             <script src="{{asset('assets')}}/admin/vendor/jquery/jquery-3.3.1.min.js"></script>
             <script src="{{asset('assets')}}/admin/vendor/bootstrap/js/bootstrap.bundle.js"></script>

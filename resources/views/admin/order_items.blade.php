@@ -70,11 +70,11 @@
                             <td>
                                 <select name="status">
                                     <option selected>{{$data->status}}</option>
-                                    <option>Siparişiniz Alındı</option>
-                                    <option>Onaylandı</option>
-                                    <option>Gönderimde</option>
-                                    <option>Tamamlandı</option>
-                                    <option>İptal Edildi</option>
+                                    <option>New</option>
+                                    <option>Accepted</option>
+                                    <option>Shipped</option>
+                                    <option>Completed</option>
+                                    <option>Canceled</option>
                                 </select>
                             </td>
                         </tr>
@@ -117,11 +117,11 @@
                             <td>{{$rs->product->price * $rs->quantity}}₺</td>
                             <td><select name="status">
                                     <option selected>{{$rs->status}}</option>
-                                    <option>Siparişiniz Alındı</option>
-                                    <option>Onaylandı</option>
-                                    <option>Gönderimde</option>
-                                    <option>Tamamlandı</option>
-                                    <option>İptal Edildi</option>
+                                    <option>New</option>
+                                    <option>Accepted</option>
+                                    <option>Shipped</option>
+                                    <option>Completed</option>
+                                    <option>Canceled</option>
                                 </select>
                             </td>
                             <td><textarea name="note" rows="3" cols="30">{{$rs->note}}</textarea></td>

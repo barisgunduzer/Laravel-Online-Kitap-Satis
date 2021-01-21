@@ -18,7 +18,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <br>
+                            <br><br><br>
                                 <div class="bradcaump__inner text-left">
                                     <nav class="bradcaump-content">
                                         <a href="{{route('home')}}">Anasayfa</a>
@@ -72,10 +72,10 @@
                         <aside class="wedget__categories poroduct--tag">
                             <h3 class="wedget__title" style="text-transform:none">Kategoriler</h3>
                             <ul>
-                                <li><a href="">{{$category->title}}</a></li>
+                                <li><a href="{{route('category',['id'=>$cat->id, 'slug'=>$category->slug])}}">{{$category->title}}</a></li>
                                 @foreach($categories as $cat)
                                     @if($cat->id != $category->id)
-                                        <li><a href="">{{$cat->title}}</a></li>
+                                        <li><a href="{{route('category',['id'=>$cat->id, 'slug'=>$cat->slug])}}">{{$cat->title}}</a></li>
                                     @endif
                                 @endforeach
                             </ul>

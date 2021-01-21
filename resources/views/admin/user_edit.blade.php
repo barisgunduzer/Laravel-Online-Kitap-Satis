@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Edit Product')
+@section('title','Edit User')
 
 @section('headerjs')<script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
 @endsection
@@ -18,13 +18,12 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">Edit FAQ </h2>
+                        <h2 class="pageheader-title">Edit User</h2>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{route('admin_home')}}" class="breadcrumb-link">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="{{route('admin_faq')}}" class="breadcrumb-link">FAQs</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Edit FAQ</li>
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Edit User</a></li>
                                 </ol>
                             </nav>
                         </div>
@@ -38,37 +37,38 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('admin_faq_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                User Created At: {{$data->created_at->format('d.m.Y H:i:s ')}} <br>
+                            </div>
+                            <form action="{{route('admin_user_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="question" class="col-form-label">Question:</label>
-                                    <input id="question" type="text" name="question" value="{{$data->question}}" class="form-control">
+                                    <label for="name" class="col-form-label">Name:</label>
+                                    <input id="name" type="text" name="name" value="{{$data->name}}" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="editor" class="col-form-label">Answer:</label>
-                                    <textarea id="editor" name="answer">{{$data->answer}}</textarea>
-                                    <script>
-                                        ClassicEditor
-                                            .create( document.querySelector( '#editor' ) )
-                                            .catch( error => {
-                                                console.error( error );
-                                            } );
-                                    </script>
+                                    <label for="email" class="col-form-label">Email:</label>
+                                    <input id="email" type="text" name="email" value="{{$data->email}}" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="position" class="col-form-label">Position:</label>
-                                    <input id="position" type="number" name="position" value="{{$data->position}}" class="form-control">
+                                    <label for="phone" class="col-form-label">Phone:</label>
+                                    <input id="phone" type="text" name="phone" value="{{$data->phone}}" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="status">Status:</label>
-                                    <select id="status" name="status" class="form-control">
-                                        <option selected="selected">{{$data->status}}</option>
-                                        <option>False</option>
-                                        <option>True</option>
-                                    </select>
+                                    <label for="address" class="col-form-label">Address:</label>
+                                    <input id="address" type="text" name="address" value="{{$data->address}}" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <button href="#" type="submit" class="btn btn-primary">Edit FAQ</button>
+                                    <label for="image">Image:</label>
+                                    <input id="image" type="file" name="image">
+                                </div>
+                                @if($data->profile_photo_path)
+                                    <div class="form-group">
+                                        <img src="{{Storage::url($data->profile_photo_path)}}" height="200" style="border-radius: 10px" alt=""/>
+                                    </div>
+                                @endif
+                                <div class="form-group">
+                                    <button href="#" type="submit" class="btn btn-primary">Update User</button>
                                 </div>
                             </form>
                         </div>

@@ -15,11 +15,11 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">Admin Order List</h2>
+                        <h2 class="pageheader-title">Order List</h2>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin_home')}}" class="breadcrumb-link">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Order List</li>
                                 </ol>
                             </nav>
@@ -54,7 +54,7 @@
                                     @foreach($orders as $rs)
                                         <tr>
                                             <td>{{$rs->id}}</td>
-                                            <td>{{$rs->user->name}}</td>
+                                            <td><a href="{{route('admin_user_show',['id'=>$rs->user->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">{{$rs->name}}</a></td>
                                             <td>{{$rs->name}}</td>
                                             <td>{{$rs->email}}</td>
                                             <td>{{$rs->address}}</td>

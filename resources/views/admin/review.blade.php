@@ -25,7 +25,7 @@
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin_home')}}" class="breadcrumb-link">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Reviews</li>
                                 </ol>
                             </nav>
@@ -49,6 +49,7 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Name</th>
                                         <th>Book</th>
                                         <th>Subject</th>
                                         <th>Review</th>
@@ -63,6 +64,7 @@
                                     @foreach($reviews as $rs)
                                     <tr>
                                         <td>{{$rs->id}}</td>
+                                        <td><a href="{{route('admin_user_show',['id'=>$rs->user->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">{{$rs->user->name}}</a></td>
                                         <td><a href="{{route('product',['id' => $rs->product->id,'slug' => $rs->product->slug])}}" target="_blank"></a>{{$rs->product->title}}</td>
                                         <td>{{$rs->subject}}</td>
                                         <td>{{$rs->review}}</td>

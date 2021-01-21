@@ -25,7 +25,7 @@
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('admin_home')}}" class="breadcrumb-link">Home</a></li>
                                     <!-- <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Categories</a></li> -->
                                     <li class="breadcrumb-item active" aria-current="page">Categories</li>
                                 </ol>

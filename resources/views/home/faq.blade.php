@@ -16,11 +16,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="bradcaump__inner text-center">
-                        <h2 class="bradcaump-title">Sıkça Sorulan Sorular</h2>
+                        <h2 class="bradcaump-title" style="text-transform:none;color:#1d2124">Sıkça Sorulan Sorular</h2>
                         <nav class="bradcaump-content">
-                            <a class="breadcrumb_item" href="index.html">Anasayfa</a>
-                            <span class="brd-separetor">/</span>
-                            <span class="breadcrumb_item active">SSS</span>
+                            <a class="breadcrumb_item" href="{{route('home')}}" style="text-transform:none;color:#1d2124">Anasayfa</a>
+                            <span class="brd-separetor" style="text-transform:none;color:#1d2124">/</span>
+                            <span class="breadcrumb_item active" style="text-transform:none;color:#e59285">SSS</span>
                         </nav>
                     </div>
                 </div>

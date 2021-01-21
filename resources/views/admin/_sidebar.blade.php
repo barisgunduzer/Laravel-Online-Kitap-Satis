@@ -11,19 +11,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-divider">
+                        User
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin_users')}}"><i class="fas fa-user"></i>Users</a>
+                    </li>
+                    <li class="nav-divider">
                         Product
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('admin_category')}}"><i class="fas fa-fw fa-chart-pie"></i>Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin_products')}}"><i class="fas fa-fw fa-book"></i>Books</a>
+                        <a class="nav-link" href="{{route('admin_products')}}"><i class="fas fa-fw fa-book"></i>Products</a>
                     </li>
                     <li class="nav-divider">
                         Customer
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fas fa-shipping-fast"></i>Orders</a>
+                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fas fa-box"></i>Orders</a>
                         <div id="submenu-1" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">

@@ -18,27 +18,20 @@
                 <div class="col-lg-8 d-none d-lg-block">
                     <nav class="mainmenu__nav">
                         <ul class="meninmenu d-flex justify-content-start">
-                            <li class="drop"><a href="" style="text-transform:none">Kitap</a>
-                                <div class="megamenu mega03">
-                                    <ul class="item item03">
-                                        <li class="title" style="text-transform:none">Kategoriler</li>
+                            <li><a href="{{route('home')}}" style="text-transform:none">Anasayfa</a></li>
+                            <li class="drop with--one--item"><a href="" style="text-transform:none">Kitap</a>
+                                <div class="megamenu mega02">
+                                    <ul class="item item02">
+                                        <li class="title" style="text-transform:none">En Çok Bakılanlar</li>
                                         @include('home._menu')
                                     </ul>
                                     <ul class="item item03">
                                         <li class="title" style="text-transform:none">En Çok Satanlar</li>
-                                        <li><a href="">Mystery</a></li>
-                                        <li><a href="">Religion & Inspiration</a></li>
-                                        <li><a href="">Romance</a></li>
-                                        <li><a href="">Fiction/Fantasy</a></li>
-                                        <li><a href="">Sleeveless</a></li>
-                                    </ul>
-                                    <ul class="item item03">
-                                        <li class="title" style="text-transform:none">Koleksiyonlar</li>
-                                        <li><a href="">Science </a></li>
-                                        <li><a href="">Fiction/Fantasy</a></li>
-                                        <li><a href="">Self-Improvement</a></li>
-                                        <li><a href="">Home & Garden</a></li>
-                                        <li><a href="">Humor Books</a></li>
+                                        <li><a href="http://127.0.0.1:8000/kategori/20/fantastik">Fantastik</a></li>
+                                        <li><a href="http://127.0.0.1:8000/kategori/17/bilim-kurgu">Bilim Kurgu</a></li>
+                                        <li><a href="http://127.0.0.1:8000/kategori/19/dunya">Dünya Edebiyatı</a></li>
+                                        <li><a href="http://127.0.0.1:8000/kategori/15/bilgisayar">Bilgisayar</a></li>
+                                        <li><a href="http://127.0.0.1:8000/kategori/8/egitim">Eğitim</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -49,6 +42,10 @@
                                     </ul>
                                 </div>
                             </li>
+                            <li><a href="{{route('references')}}" style="text-transform:none">Refereranslar</a></li>
+                            <li><a href="{{route('aboutus')}}" style="text-transform:none">Hakkımızda</a></li>
+                            <li><a href="{{route('faq')}}" style="text-transform:none">SSS</a></li>
+                            <li><a href="{{route('contact')}}" style="text-transform:none">İletişim</a></li>
                         </ul>
                     </nav>
                 </div>

@@ -10,7 +10,7 @@
                             <h2><span>Sevdiğiniz </span></h2>
                             <h2><span>kitaplar için</span> doğru </h2>
                             <h2>adrestesiniz...</h2>
-                            <a class="shopbtn" href="#allbooks" style="text-transform:none">Şimdi alışveriş yap</a>
+                            <a class="shopbtn" href="#bestseller" style="text-transform:none">Şimdi alışveriş yap</a>
                         </div>
                     </div>
                 </div>
@@ -29,6 +29,40 @@
                             <h2><span>%20 İndirim Fırsatı</span></h2>
                             <h2>Sizleri bekliyor</h2>
                             <a class="shopbtn" href="#allbooks" style="text-transform:none">Şimdi alışveriş yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Single Slide -->
+    <!-- Start Single Slide -->
+    <div class="slide animation__style10 bg-image--7 fullscreen align__center--left">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="slider__content">
+                        <div class="contentbox">
+                            <h2>Yeni çıkan kitaplara</h2>
+                            <h2><span>göz attınız mı?</span></h2>
+                            <a class="shopbtn" href="#newbooks" style="text-transform:none">Şimdi alışveriş yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Single Slide -->
+    <!-- Start Single Slide -->
+    <div class="slide animation__style10 bg-image--7 fullscreen align__center--left">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="slider__content">
+                        <div class="contentbox">
+                            <h2>Sizin için seçtiklerimize</h2>
+                            <h2><span>göz attınız mı?</span></h2>
+                            <a class="shopbtn" href="#pickedforyou" style="text-transform:none">Şimdi alışveriş yap</a>
                         </div>
                     </div>
                 </div>

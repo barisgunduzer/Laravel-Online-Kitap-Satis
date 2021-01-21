@@ -88,10 +88,9 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product, $id)
+    public function edit($id)
     {
         $data = Product::find($id);
-        #$datalist = Category::all();
         $datalist = Category::with('children')->get();
         return view('admin.product_edit',['data' => $data],['datalist' => $datalist]);
     }

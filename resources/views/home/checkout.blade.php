@@ -173,7 +173,7 @@
                                 @if($subtotal < 100)
                                     <li>Kargo Ücreti<span>{{$cost}}₺</span></li>
                                 @else
-                                    <li>Ücretsiz Kargo<span><s>{{$cost}}</s></span></li>
+                                    <li>Ücretsiz Kargo<span><s>{{$cost}}₺</s></span></li>
                                 @endif
                             </ul>
                             <ul class="total__amount">
